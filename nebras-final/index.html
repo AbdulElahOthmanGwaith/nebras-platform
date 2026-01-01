@@ -1,0 +1,3297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نبراس - منصتك الأولى لتحسين المواقع | Nebras</title>
+    <meta name="description" content="نبراس هي منصتك الشاملة لتحسين جودة المواقع الإلكترونية. أدوات تحليل الأداء، إمكانية الوصول، SEO، وأفضل الممارسات. جربها الآن مجاناً!">
+    <meta name="keywords" content="تحليل المواقع, أداء المواقع, SEO, Lighthouse, تحسين المواقع, سرعة المواقع, ويب, تطوير المواقع">
+    <meta name="author" content="نبراس - Nebras">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="نبراس - منصتك لتحسين المواقع">
+    <meta property="og:description" content="منصتك الشاملة لتحليل وتحسين المواقع الإلكترونية">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nebras.example.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="نبراس - منصتك لتحسين المواقع">
+    <meta name="twitter:description" content="منصتك الشاملة لتحليل وتحسين المواقع الإلكترونية">
+    <link rel="canonical" href="https://nebras.example.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Almarai:wght@300;400;700;800&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💡</text></svg>">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "نبراس",
+        "alternateName": "Nebras",
+        "description": "منصة لتحليل وتحسين جودة المواقع الإلكترونية",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "نبراس",
+            "url": "https://nebras.example.com"
+        }
+    }
+    </script>
+    
+    <style>
+        /* CSS Variables - Optimized for performance */
+        :root {
+            --primary-dark: #0F172A;
+            --secondary-dark: #1E293B;
+            --accent-amber: #F59E0B;
+            --accent-amber-light: #FBBF24;
+            --accent-amber-dark: #D97706;
+            --accent-blue: #3B82F6;
+            --accent-blue-light: #60A5FA;
+            --accent-purple: #8B5CF6;
+            --accent-purple-light: #A78BFA;
+            --accent-green: #10B981;
+            --accent-green-light: #34D399;
+            --accent-pink: #EC4899;
+            --accent-red: #EF4444;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --card-bg: rgba(30, 41, 59, 0.85);
+            --glass-bg: rgba(15, 23, 42, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-border-hover: rgba(245, 158, 11, 0.3);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.4);
+            --shadow-glow: 0 0 20px rgba(245, 158, 11, 0.3);
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 20px;
+            --border-radius-full: 50px;
+        }
+
+        /* Light Mode Variables */
+        body.light-mode {
+            --primary-dark: #F8FAFC;
+            --secondary-dark: #F1F5F9;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --glass-bg: rgba(241, 245, 249, 0.9);
+            --glass-border: rgba(203, 213, 225, 0.4);
+            --glass-border-hover: rgba(245, 158, 11, 0.4);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Reset & Base Styles */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Cairo', 'Almarai', sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Prevent layout shift */
+        img, video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--accent-amber);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.12s ease, background 0.12s ease, opacity 0.2s ease;
+            mix-blend-mode: difference;
+            opacity: 1;
+        }
+
+        .cursor.hover {
+            transform: scale(2.5);
+            background: var(--accent-amber);
+        }
+
+        .cursor.hidden {
+            opacity: 0;
+        }
+
+        /* Loading Screen */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-dark);
+            z-index: 10001;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--glass-border);
+            border-top-color: var(--accent-amber);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-text {
+            margin-top: 1rem;
+            color: var(--accent-amber);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.75rem 5%;
+            background: rgba(15, 23, 42, 0.98);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-amber);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            font-size: 1.6rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--accent-amber); }
+            to { text-shadow: 0 0 25px var(--accent-amber), 0 0 35px var(--accent-amber-light); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.6rem 1rem;
+            border-radius: var(--border-radius-md);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0.3rem;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-amber), var(--accent-amber-light));
+            transition: width 0.3s ease, left 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-amber);
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .nav-links a:hover::after {
+            width: 60%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-cta {
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-amber-dark));
+            color: var(--primary-dark);
+            font-weight: 700;
+            border-radius: var(--border-radius-full);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background: var(--text-primary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.85) 50%, rgba(15, 23, 42, 0.95) 100%);
+            z-index: -1;
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-amber);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float-particle 20s infinite ease-in-out;
+        }
+
+        @keyframes float-particle {
+            0%, 100% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.5rem;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05));
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: var(--border-radius-full);
+            font-size: 0.9rem;
+            color: var(--accent-amber);
+            margin-bottom: 2rem;
+            animation: pulse-badge 3s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.3); }
+            50% { box-shadow: 0 0 0 15px rgba(245, 158, 11, 0); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.25;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-amber-light), var(--accent-amber));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: var(--border-radius-full);
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-amber-dark));
+            color: var(--primary-dark);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.45);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-amber);
+            color: var(--accent-amber);
+            background: rgba(245, 158, 11, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent-amber);
+            border: 2px solid var(--accent-amber);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-amber);
+            color: var(--primary-dark);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 1.5rem;
+            color: var(--accent-amber);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-15px); }
+            60% { transform: translateX(-50%) translateY(-7px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: var(--border-radius-full);
+            font-size: 0.85rem;
+            color: var(--accent-amber);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Story Section */
+        .story {
+            background: var(--secondary-dark);
+        }
+
+        .story-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-image {
+            position: relative;
+        }
+
+        .story-image-wrapper {
+            position: relative;
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+        }
+
+        .story-image img {
+            width: 100%;
+            border-radius: var(--border-radius-xl);
+            transition: transform 0.5s ease;
+        }
+
+        .story-image-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        .story-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
+        }
+
+        .story-image-overlay h4 {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .story-image::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent-amber);
+            border-radius: var(--border-radius-xl);
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .story-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .story-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.25rem;
+            background: var(--glass-bg);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            border-color: var(--accent-amber);
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-amber-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Features Section */
+        .features {
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-xl);
+            padding: 2rem;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-amber), var(--accent-amber-light), var(--accent-amber));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--glass-border-hover);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.08));
+            border-radius: var(--border-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--accent-amber);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-amber-light));
+            color: var(--primary-dark);
+            transform: rotate(5deg) scale(1.08);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Journey Timeline */
+        .journey {
+            background: linear-gradient(180deg, var(--secondary-dark) 0%, var(--primary-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-amber), var(--accent-amber-light), var(--accent-amber));
+            border-radius: 4px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding: 2rem 0;
+            width: 50%;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            margin-left: 50%;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 1.75rem;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--glass-border);
+            width: calc(100% - 3rem);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--accent-amber);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--accent-amber);
+            border-radius: 50%;
+            border: 4px solid var(--primary-dark);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -10px;
+        }
+
+        .timeline-year {
+            font-size: 0.85rem;
+            color: var(--accent-amber);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(245, 158, 11, 0.1);
+            border-radius: var(--border-radius-full);
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Media Hub */
+        .media-hub {
+            background: var(--secondary-dark);
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 220px);
+            gap: 1.25rem;
+        }
+
+        .media-item {
+            position: relative;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--card-bg);
+        }
+
+        .media-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .media-item img,
+        .media-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .media-item:hover img,
+        .media-item:hover video {
+            transform: scale(1.08);
+        }
+
+        .media-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(15, 23, 42, 0.95));
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .media-item:hover .media-overlay {
+            transform: translateY(0);
+        }
+
+        .media-overlay h4 {
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .media-overlay span {
+            color: var(--accent-amber);
+            font-size: 0.8rem;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 55px;
+            height: 55px;
+            background: rgba(245, 158, 11, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .media-item:hover .play-icon {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .play-icon i {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-left: 3px;
+        }
+
+        /* How to Use */
+        .how-to-use {
+            position: relative;
+        }
+
+        .usage-tabs {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.9rem 1.75rem;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-md);
+            color: var(--text-secondary);
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tab-btn i {
+            font-size: 1.1rem;
+        }
+
+        .tab-btn:hover,
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05));
+            border-color: var(--accent-amber);
+            color: var(--accent-amber);
+        }
+
+        .tab-content {
+            display: none;
+            background: var(--card-bg);
+            border-radius: var(--border-radius-xl);
+            padding: 2.5rem;
+            border: 1px solid var(--glass-border);
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .tab-content > p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-amber-light));
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .code-block {
+            background: #0D1117;
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            border: 1px solid var(--glass-border);
+        }
+
+        .code-block .comment { color: var(--text-muted); }
+        .code-block .command { color: var(--accent-green); }
+        .code-block .string { color: var(--accent-amber); }
+        .code-block .keyword { color: var(--accent-purple); }
+        .code-block .function { color: var(--accent-blue); }
+
+        /* Audit Types */
+        .audit-types {
+            background: var(--secondary-dark);
+        }
+
+        .audit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .audit-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+        }
+
+        .audit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--glass-border-hover);
+        }
+
+        .audit-header {
+            padding: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .audit-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--border-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .audit-icon.performance {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.1));
+            color: var(--accent-green);
+        }
+
+        .audit-icon.accessibility {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+            color: var(--accent-blue);
+        }
+
+        .audit-icon.best-practices {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.1));
+            color: var(--accent-amber);
+        }
+
+        .audit-icon.seo {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.1));
+            color: var(--accent-purple);
+        }
+
+        .audit-header h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .audit-header span {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .audit-body {
+            padding: 1.5rem;
+        }
+
+        .audit-list {
+            list-style: none;
+        }
+
+        .audit-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .audit-list li:last-child {
+            border-bottom: none;
+        }
+
+        .audit-list li i {
+            color: var(--accent-green);
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Metrics */
+        .metrics-section {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.03), rgba(139, 92, 246, 0.03));
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 1.75rem;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            border-color: var(--accent-amber);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.15);
+        }
+
+        .metric-icon {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.08));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 1.4rem;
+            color: var(--accent-amber);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover .metric-icon {
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-amber-light));
+            color: var(--primary-dark);
+        }
+
+        .metric-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .metric-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-amber-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* Plugins */
+        .plugins-section {
+            background: var(--secondary-dark);
+        }
+
+        .plugins-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .plugin-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 1.75rem;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .plugin-card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-3px);
+        }
+
+        .plugin-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .plugin-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .plugin-card h3 {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .plugin-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .plugin-link {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .plugin-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Importance */
+        .importance {
+            background: var(--secondary-dark);
+        }
+
+        .importance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .importance-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .importance-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+        }
+
+        .importance-icon {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.08));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 1.8rem;
+            color: var(--accent-green);
+            transition: all 0.3s ease;
+        }
+
+        .importance-card:hover .importance-icon {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-green-light));
+            color: white;
+            transform: rotate(10deg);
+        }
+
+        .importance-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .importance-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Video Section */
+        .video-section {
+            position: relative;
+            padding: 8rem 5%;
+            overflow: hidden;
+        }
+
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.1;
+            z-index: -2;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.85));
+            z-index: -1;
+        }
+
+        .video-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-container {
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(245, 158, 11, 0.2);
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(139, 92, 246, 0.05));
+        }
+
+        .cta-content {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.25rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .cta p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .newsletter input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-md);
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+        }
+
+        .newsletter input:focus {
+            outline: none;
+            border-color: var(--accent-amber);
+        }
+
+        .newsletter input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .newsletter button {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-amber-light));
+            border: none;
+            border-radius: var(--border-radius-md);
+            color: var(--primary-dark);
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.35);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--secondary-dark);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--accent-amber);
+            transform: translateY(-3px);
+        }
+
+        .testimonial-rating {
+            color: var(--accent-amber);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-amber-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .author-info h4 {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info span {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--secondary-dark);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-md);
+            margin-bottom: 1rem;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: right;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--accent-amber);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-dark);
+            padding: 5rem 5% 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-brand .logo {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-link {
+            width: 42px;
+            height: 42px;
+            background: rgba(245, 158, 11, 0.1);
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-amber);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-amber-light));
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-amber);
+            padding-right: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2.5rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Mode Toggle */
+        .mode-toggle {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            width: 48px;
+            height: 48px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .mode-toggle:hover {
+            border-color: var(--accent-amber);
+            transform: scale(1.05);
+        }
+
+        .mode-toggle i {
+            color: var(--accent-amber);
+            font-size: 1.1rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-amber), var(--accent-amber-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .back-to-top i {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .audit-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .media-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 180px);
+            }
+            
+            .media-item.large {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+            
+            .nav-links {
+                gap: 0.25rem;
+            }
+            
+            .nav-links a {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--primary-dark);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1.5rem;
+                transition: right 0.3s ease;
+                padding: 2rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .story-container {
+                grid-template-columns: 1fr;
+            }
+
+            .story-image {
+                order: -1;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                margin-left: 0;
+                justify-content: flex-start;
+                padding-left: 45px;
+            }
+
+            .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 3px;
+                right: auto;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .media-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .media-item.large {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .newsletter {
+                flex-direction: column;
+            }
+
+            .tab-content {
+                padding: 1.75rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .mode-toggle,
+            .back-to-top {
+                bottom: 1rem;
+            }
+            
+            .mode-toggle {
+                left: 1rem;
+            }
+            
+            .back-to-top {
+                right: 1rem;
+            }
+
+            .cursor {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-buttons {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                justify-content: center;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .navbar,
+            .loading,
+            .mode-toggle,
+            .back-to-top,
+            .hero-buttons,
+            .cta-buttons {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            section {
+                padding: 2rem 0;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High Contrast Mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --glass-border: rgba(255, 255, 255, 0.3);
+            }
+            
+            body.light-mode {
+                --glass-border: rgba(0, 0, 0, 0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+        <span class="loader-text">جاري تحميل نبراس...</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-content">
+            <a href="#" class="logo">
+                <i class="fas fa-lightbulb"></i>
+                نبراس
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#story">قصتنا</a></li>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#journey">رحلتنا</a></li>
+                <li><a href="#media">المركز المرئي</a></li>
+                <li><a href="#how-to-use">الاستخدام</a></li>
+                <li><a href="#audits">الفحوصات</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#contact" class="nav-cta">ابدأ الآن</a>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&h=1080&fit=crop" alt="Technology Background" loading="eager">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="particles">
+            <div class="particle" style="left: 5%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 15%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 25%; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 35%; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 45%; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 55%; animation-delay: 5s;"></div>
+            <div class="particle" style="left: 65%; animation-delay: 2.5s;"></div>
+            <div class="particle" style="left: 75%; animation-delay: 4.5s;"></div>
+            <div class="particle" style="left: 85%; animation-delay: 1.5s;"></div>
+            <div class="particle" style="left: 95%; animation-delay: 3.5s;"></div>
+        </div>
+        <div class="hero-content">
+            <span class="hero-badge">
+                <i class="fas fa-star"></i>
+                منصتك الأولى لتحسين المواقع
+            </span>
+            <h1>نبراس تُضيء طريقك نحو <span>التميز الرقمي</span></h1>
+            <p>منصتك الشاملة لتحليل وتحسين المواقع الإلكترونية. نقدم لك الأدوات والمعارف اللازمة لبناء مواقع سريعة، آمنة، ومتاحة للجميع.</p>
+            <div class="hero-buttons">
+                <a href="#features" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    ابدأ الرحلة
+                </a>
+                <a href="#media" class="btn btn-secondary">
+                    <i class="fas fa-play-circle"></i>
+                    شاهد الفيديو
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story" id="story">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">قصتنا</span>
+                <h2>منارة للمطورين والمصممين</h2>
+                <p>نبراس هي منصتك التي تساعدك على إضاءة طريقك نحو التميز الرقمي</p>
+            </div>
+            
+            <div class="story-container">
+                <div class="story-image fade-in">
+                    <div class="story-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" alt="فريق العمل" loading="lazy">
+                        <div class="story-image-overlay">
+                            <h4>فريق نبراس المتميز</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-content fade-in">
+                    <h3>رؤيتنا: إضاءة الطريق الرقمي</h3>
+                    <p>نشأت نبراس من رؤية بسيطة وهي أن كل مطور يستحق أدوات قوية تساعده على بناء مواقع استثنائية. نؤمن بأن الويب يجب أن يكون سريعاً، متاحاً للجميع، وآمناً.</p>
+                    <p>منذ انطلاقتنا، عملنا على تجميع أفضل الممارسات والأدوات في منصة واحدة شاملة. هدفنا هو democratize الوصول إلى المعرفة التقنية وتمكين المطورين العرب من المنافسة عالمياً.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">+500K</div>
+                            <div class="stat-label">موقع محلل</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">+100K</div>
+                            <div class="stat-label">مستخدم نشط</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">دولة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">المميزات</span>
+                <h2>لماذا نبراس؟</h2>
+                <p>كل ما تحتاجه لتحسين موقعك في منصة واحدة متكاملة</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>تحليل الأداء المتقدم</h3>
+                    <p>فحوصات شاملة للأداء تتضمن قياس سرعة التحميل، وقت الاستجابة، وتحسين تجربة المستخدم بشكل تفصيلي.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <h3>إمكانية الوصول الشاملة</h3>
+                    <p>ضمان أن موقعك متاح لجميع المستخدمين بما فيهم ذوي الإعاقة من خلال معايير WCAG العالمية.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>تحسين محركات البحث</h3>
+                    <p>توصيات مخصصة لتحسين ظهور موقعك في نتائج البحث وزيادة حركة المرور العضوية.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>الأمان والموثوقية</h3>
+                    <p>فحوصات أمنية شاملة لضمان حماية موقعك وبيانات مستخدميك من التهديدات.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>التكامل المستمر</h3>
+                    <p>أدوات CI/CD مدمجة لمراقبة أداء موقعك تلقائياً مع كل تحديث.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>التخصيص والمرونة</h3>
+                    <p>حزم تطبيقات ومكونات إضافية مخصصة لتناسب تقنياتك وأدواتك المفضلة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Timeline -->
+    <section class="journey" id="journey">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">رحلتنا</span>
+                <h2>شهداء الإنجازات</h2>
+                <p>رحلة من التميز والإنجازات التي نفخر بها</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2020</span>
+                        <h4>الانطلاقة الأولى</h4>
+                        <p>بدأت فكرة نبراس من فريق صغير من المطورين المتحمسين لتقوية الويب العربي.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2021</span>
+                        <h4>إطلاق النسخة الأولى</h4>
+                        <p>أطلقنا أول نسخة من المنصة مع أدوات التحليل الأساسية وحظينا بآلاف المستخدمين.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2022</span>
+                        <h4>التوسع الإقليمي</h4>
+                        <p>وسعنا نطاق خدماتنا لتشمل أكثر من 30 دولة حول العالم.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2023</span>
+                        <h4>الذكاء الاصطناعي</h4>
+                        <p>أضفنا ميزات الذكاء الاصطناعي لتقديم توصيات ذكية ومخصصة لكل مستخدم.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2024</span>
+                        <h4>مليون مستخدم</h4>
+                        <p>وصلنا إلى مليون مستخدم نشط وشهدنا نمواً غير مسبوق في استخدام المنصة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Hub -->
+    <section class="media-hub" id="media">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">المركز المرئي</span>
+                <h2>مكتبة الوسائط</h2>
+                <p>مجموعة مختارة من الصور والفيديوهات عالية الجودة</p>
+            </div>
+            
+            <div class="media-grid">
+                <div class="media-item large fade-in">
+                    <video muted loop playsinline autoplay poster="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" loading="lazy">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                    <div class="media-overlay">
+                        <h4>فيديو تعريفي شامل</h4>
+                        <span>فيديو • 5 دقائق</span>
+                    </div>
+                </div>
+                
+                <div class="media-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" alt="العمل الجماعي" loading="lazy">
+                    <div class="media-overlay">
+                        <h4>فريق العمل</h4>
+                        <span>صورة • تقنية</span>
+                    </div>
+                </div>
+                
+                <div class="media-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="تحليل البيانات" loading="lazy">
+                    <div class="media-overlay">
+                        <h4>تحليل البيانات</h4>
+                        <span>صورة • بيانات</span>
+                    </div>
+                </div>
+                
+                <div class="media-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="الاجتماعات" loading="lazy">
+                    <div class="media-overlay">
+                        <h4>العمل الجماعي</h4>
+                        <span>صورة • اجتماعات</span>
+                    </div>
+                </div>
+                
+                <div class="media-item fade-in">
+                    <video muted loop playsinline poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" loading="lazy">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                    <div class="media-overlay">
+                        <h4>دليل البدء السريع</h4>
+                        <span>فيديو • 3 دقائق</span>
+                    </div>
+                </div>
+                
+                <div class="media-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=400&fit=crop" alt="الاستراتيجية" loading="lazy">
+                    <div class="media-overlay">
+                        <h4>التخطيط الاستراتيجي</h4>
+                        <span>صورة • أعمال</span>
+                    </div>
+                </div>
+                
+                <div class="media-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=400&fit=crop" alt="التجارة الإلكترونية" loading="lazy">
+                    <div class="media-overlay">
+                        <h4>التجارة الإلكترونية</h4>
+                        <span>صورة • متاجر</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use -->
+    <section class="how-to-use" id="how-to-use">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">الاستخدام</span>
+                <h2>كيفية البدء</h2>
+                <p>اختر الطريقة المناسبة لك وابدأ رحلة التحسين</p>
+            </div>
+            
+            <div class="usage-tabs fade-in">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="devtools">
+                        <i class="fab fa-chrome"></i>
+                        Chrome DevTools
+                    </button>
+                    <button class="tab-btn" data-tab="cli">
+                        <i class="fas fa-terminal"></i>
+                        سطر الأوامر
+                    </button>
+                    <button class="tab-btn" data-tab="node">
+                        <i class="fas fa-cube"></i>
+                        برمجياً
+                    </button>
+                    <button class="tab-btn" data-tab="pagespeed">
+                        <i class="fas fa-globe"></i>
+                        PageSpeed
+                    </button>
+                </div>
+
+                <div class="tab-content active" id="devtools">
+                    <h3>استخدام نبراس في Chrome DevTools</h3>
+                    <p>الطريقة الأسهل والأكثر شيوعاً للحصول على تقارير فورية داخل المتصفح.</p>
+                    <div class="steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h4>افتح Chrome DevTools</h4>
+                                <p>اضغط على F12 أو Ctrl+Shift+I</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h4>انتقل لعلامة التبويب</h4>
+                                <p>اختر "Lighthouse" من القائمة العلوية</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h4>حدد الفئات المطلوبة</h4>
+                                <p>اختر الأداء، إمكانية الوصول، SEO، والممارسات</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <div class="step-content">
+                                <h4>انقر على تحليل</h4>
+                                <p>انتظر حتى تكتمل عملية التدقيق</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="cli">
+                    <h3>استخدام نبراس من سطر الأوامر</h3>
+                    <p>مثالي للأتمتة والتكامل مع أنظمة CI/CD.</p>
+                    <div class="code-block">
+                        <span class="comment"># التثبيت العالمي</span><br>
+                        <span class="command">npm install -g nebras</span><br><br>
+                        <span class="comment"># تشغيل تحليل</span><br>
+                        <span class="command">nebras</span> <span class="string">&lt;url&gt;</span><br><br>
+                        <span class="comment"># خيارات متقدمة</span><br>
+                        <span class="command">nebras</span> <span class="string">&lt;url&gt;</span> <span class="command">--output=json --output-path=report.json</span>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="node">
+                    <h3>الاستخدام البرمجي</h3>
+                    <p>دمج نبراس في تطبيقاتك وأنظمة التطوير.</p>
+                    <div class="code-block">
+                        <span class="command">import</span> nebras <span class="command">from</span> <span class="string">'nebras'</span>;<br>
+                        <span class="command">import</span> { <span class="command">launch</span> } <span class="command">from</span> <span class="string">'chrome-launcher'</span>;<br><br>
+                        <span class="command">const</span> chrome = <span class="command">await</span> <span class="command">launch</span>();<br>
+                        <span class="command">const</span> results = <span class="command">await</span> nebras(<span class="string">'https://site.com'</span>, { port: chrome.port });
+                    </div>
+                </div>
+
+                <div class="tab-content" id="pagespeed">
+                    <h3>PageSpeed Insights</h3>
+                    <p>خدمة ويب مجانية للتحليل الفوري بدون تثبيت.</p>
+                    <div class="steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h4>قم بزيارة الموقع</h4>
+                                <p>انتقل إلى pagespeed.web.dev</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h4>أدخل عنوان URL</h4>
+                                <p>اكتب رابط الصفحة المراد تحليلها</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h4>احصل على التقرير</h4>
+                                <p>ستحصل على تقرير مفصل مع توصيات</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audit Types -->
+    <section class="audit-types" id="audits">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">أنواع الفحوصات</span>
+                <h2>فحوصات شاملة ومتكاملة</h2>
+                <p>نبراس يُجري فحوصات في أربعة محاور رئيسية لضمان جودة موقعك</p>
+            </div>
+            
+            <div class="audit-grid">
+                <div class="audit-card fade-in">
+                    <div class="audit-header">
+                        <div class="audit-icon performance">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div>
+                            <h3>الأداء</h3>
+                            <span>Performance</span>
+                        </div>
+                    </div>
+                    <div class="audit-body">
+                        <ul class="audit-list">
+                            <li><i class="fas fa-check"></i> سرعة عرض أول محتوى (FCP)</li>
+                            <li><i class="fas fa-check"></i> أكبر عنصر محتوى (LCP)</li>
+                            <li><i class="fas fa-check"></i> إجمالي وقت الحظر (TBT)</li>
+                            <li><i class="fas fa-check"></i> متغيرات التصميم (CLS)</li>
+                            <li><i class="fas fa-check"></i> تفاعلية الصفحة (INP)</li>
+                            <li><i class="fas fa-check"></i> مؤشر السرعة (SI)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="audit-card fade-in">
+                    <div class="audit-header">
+                        <div class="audit-icon accessibility">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <div>
+                            <h3>إمكانية الوصول</h3>
+                            <span>Accessibility</span>
+                        </div>
+                    </div>
+                    <div class="audit-body">
+                        <ul class="audit-list">
+                            <li><i class="fas fa-check"></i> دعم لوحة المفاتيح</li>
+                            <li><i class="fas fa-check"></i> تسميات ARIA صحيحة</li>
+                            <li><i class="fas fa-check"></i> ألوان ذات تباين كافٍ</li>
+                            <li><i class="fas fa-check"></i> معالم HTML5</li>
+                            <li><i class="fas fa-check"></i> نصوص بديلة للصور</li>
+                            <li><i class="fas fa-check"></i> ترتيب منطقي للصفحة</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="audit-card fade-in">
+                    <div class="audit-header">
+                        <div class="audit-icon best-practices">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h3>أفضل الممارسات</h3>
+                            <span>Best Practices</span>
+                        </div>
+                    </div>
+                    <div class="audit-body">
+                        <ul class="audit-list">
+                            <li><i class="fas fa-check"></i> استخدام HTTPS</li>
+                            <li><i class="fas fa-check"></i> CSP فعال</li>
+                            <li><i class="fas fa-check"></i> بدون مكتبات قديمة</li>
+                            <li><i class="fas fa-check"></i> أخطاء Console</li>
+                            <li><i class="fas fa-check"></i> نسب أبعاد الصور</li>
+                            <li><i class="fas fa-check"></i> معالجة الأخطاء</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="audit-card fade-in">
+                    <div class="audit-header">
+                        <div class="audit-icon seo">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div>
+                            <h3>تحسين البحث</h3>
+                            <span>SEO</span>
+                        </div>
+                    </div>
+                    <div class="audit-body">
+                        <ul class="audit-list">
+                            <li><i class="fas fa-check"></i> وصف تعريفي</li>
+                            <li><i class="fas fa-check"></i> علامات hreflang</li>
+                            <li><i class="fas fa-check"></i> rel=canonical</li>
+                            <li><i class="fas fa-check"></i> توافق الجوال</li>
+                            <li><i class="fas fa-check"></i> أحجام خطوط مناسبة</li>
+                            <li><i class="fas fa-check"></i> بيانات منظمة</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="metrics-section">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">المقاييس</span>
+                <h2>المقاييس الأساسية للأداء</h2>
+                <p>فهم المقاييس هو المفتاح لتحسين تجربة المستخدم</p>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>FCP</h4>
+                    <p>الوقت حتى أول محتوى مرئي</p>
+                    <div class="metric-value">&lt; 1.8s</div>
+                </div>
+                
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h4>LCP</h4>
+                    <p>تحميل أكبر عنصر محتوى</p>
+                    <div class="metric-value">&lt; 2.5s</div>
+                </div>
+                
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <h4>TBT</h4>
+                    <p>وقت الحظر أثناء التفاعل</p>
+                    <div class="metric-value">&lt; 200ms</div>
+                </div>
+                
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-columns"></i>
+                    </div>
+                    <h4>CLS</h4>
+                    <p>استقرار التخطيط البصري</p>
+                    <div class="metric-value">&lt; 0.1</div>
+                </div>
+                
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-finger-print"></i>
+                    </div>
+                    <h4>INP</h4>
+                    <p>استجابة الصفحة للتفاعلات</p>
+                    <div class="metric-value">&lt; 200ms</div>
+                </div>
+                
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h4>SI</h4>
+                    <p>مؤشر سرعة التحميل</p>
+                    <div class="metric-value">&lt; 3.4s</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plugins -->
+    <section class="plugins-section">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">التخصيص</span>
+                <h2>حزم التطبيقات والإضافات</h2>
+                <p>نبراس قابلة للتخصيص لتناسب احتياجاتك</p>
+            </div>
+            
+            <div class="plugins-grid">
+                <div class="plugin-card fade-in">
+                    <div class="plugin-header">
+                        <div class="plugin-icon">
+                            <i class="fab fa-wordpress"></i>
+                        </div>
+                        <h3>حزمة WordPress</h3>
+                    </div>
+                    <p>توصيات متخصصة لمواقع WordPress تشمل تحسين المكونات الإضافية، القوالب، وإعدادات الأداء.</p>
+                    <a href="#" class="plugin-link">
+                        اعرف المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                
+                <div class="plugin-card fade-in">
+                    <div class="plugin-header">
+                        <div class="plugin-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h3>حزمة React</h3>
+                    </div>
+                    <p>تحسينات مخصصة لتطبيقات React تشمل تحسين hydration، تقسيم الكود، وإدارة الحالة.</p>
+                    <a href="#" class="plugin-link">
+                        اعرف المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                
+                <div class="plugin-card fade-in">
+                    <div class="plugin-header">
+                        <div class="plugin-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>إضافات مخصصة</h3>
+                    </div>
+                    <p>أنشئ إضافاتك الخاصة لتوسيع قدرات نبراس وتلبية متطلبات مشروعك الفريدة.</p>
+                    <a href="#" class="plugin-link">
+                        اعرف المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Importance -->
+    <section class="importance">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">الأهمية</span>
+                <h2>لماذا نبراس ضرورية لموقعك؟</h2>
+                <p>القيمة الحقيقية التي نقدمها لعملك</p>
+            </div>
+            
+            <div class="importance-grid">
+                <div class="importance-card fade-in">
+                    <div class="importance-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>تجربة مستخدم أفضل</h3>
+                    <p>مواقع سريعة وسلسة تحافظ على الزوار وتزيد من التحويلات والمبيعات.</p>
+                </div>
+                
+                <div class="importance-card fade-in">
+                    <div class="importance-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>ترتيب أعلى في البحث</h3>
+                    <p>تحسين ترتيب موقعك في Google وزيادة الزيارات العضوية مجاناً.</p>
+                </div>
+                
+                <div class="importance-card fade-in">
+                    <div class="importance-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>اكتشاف المشاكل</h3>
+                    <p>حدد المشاكل الأمنية والأداء قبل أن تؤثر على أعمالك.</p>
+                </div>
+                
+                <div class="importance-card fade-in">
+                    <div class="importance-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>منع التراجع</h3>
+                    <p>تأكد من أن أداء موقعك لا يتراجع مع كل تحديث أو تغيير.</p>
+                </div>
+                
+                <div class="importance-card fade-in">
+                    <div class="importance-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>تعلم مستمر</h3>
+                    <p>كل توصية تأتي مع شرح وأمثلة تساعدك على تحسين مهاراتك.</p>
+                </div>
+                
+                <div class="importance-card fade-in">
+                    <div class="importance-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>معايير عالمية</h3>
+                    <p>استخدم معايير الويب المعتمدة لضمان التوافق عبر جميع المنصات.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">آراء العملاء</span>
+                <h2>ماذا يقول عملاؤنا</h2>
+                <p>نفخر بثقة آلاف المطورين والشركات حول العالم</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"نبراس غيّرت طريقة تفكيرنا في أداء المواقع. التوصيات دقيقة والعمل سهل. أنصح كل مطور بتجربتها!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">أ ح</div>
+                        <div class="author-info">
+                            <h4>أحمد حسن</h4>
+                            <span>مدير تقني في شركة ناشئة</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"بعد استخدام نبراس، تحسنت درجة موقعي في PageSpeed من 45 إلى 92! الفرق واضح في الزيارات والمبيعات."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">س م</div>
+                        <div class="author-info">
+                            <h4>سارة محمد</h4>
+                            <span>صاحبة متجر إلكتروني</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"أفضل أداة مجانية لتحليل المواقع. الواجهة عربية سهلة والتقارير شاملة ومفصلة جداً."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">خ د</div>
+                        <div class="author-info">
+                            <h4>خالد الدوسري</h4>
+                            <span>مطور ويب مستقل</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">الأسئلة الشائعة</span>
+                <h2>إجابات على استفساراتك</h2>
+                <p>كل ما تحتاج معرفته عن نبراس</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        ما هو نبراس وكيف يعمل؟
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>نبراس هي منصة مجانية لتحليل وتحسين المواقع الإلكترونية. تقوم بإجراء فحوصات شاملة على موقعك في أربعة محاور: الأداء، إمكانية الوصول، أفضل الممارسات، وتحسين محركات البحث. ثم تقدم تقارير مفصلة مع توصيات قابلة للتنفيذ لتحسين موقعك.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        هل نبراس مجانية للاستخدام؟
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>نعم، نبراس مجانية تماماً للاستخدام الشخصي والتجاري. لا توجد حدود على عدد الفحوصات التي يمكنك إجراؤها. كما نوفر خططاً متقدمة للشركات تحتاج ميزات إضافية.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        ما الفرق بين نبراس وPageSpeed Insights؟
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>نبراس مبنية على نفس تقنية Lighthouse من Google، لكنها تقدم تجربة مستخدم عربية أفضل وتوصيات مخصصة للمنطقة. كما توفر ميزات إضافية مثل حزم التطبيقات والتكامل المستمر.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        كم يستغرق تحليل موقع؟
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>يعتمد وقت التحليل على حجم موقعك وتعقيده. عادةً ما يستغرق الأمر بين 30 ثانية ودقيقتين للمواقع الصغيرة والمتوسطة. المواقع الكبيرة قد تحتاج وقتاً أطول.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        هل يمكنني استخدام نبراس معCI/CD؟
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>بالتأكيد! نبراس تدعم التكامل مع أنظمة CI/CD الشائعة مثل GitHub Actions وGitLab CI وJenkins. يمكنك إعداد فحوصات تلقائية مع كل push لضمان عدم تراجع الأداء.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&h=600&fit=crop" alt="Video Background" class="video-bg" loading="lazy">
+        <div class="video-overlay"></div>
+        <div class="video-content fade-in">
+            <div class="section-header">
+                <span class="section-tag">فيديو تعريفي</span>
+                <h2>شاهد قصتنا</h2>
+                <p style="color: var(--text-secondary);">تعرف على نبراس وكيفية استخدامها لتحسين موقعك</p>
+            </div>
+            <div class="video-container">
+                <video controls poster="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                    متصفحك لا يدعم الفيديو
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <div class="cta-content fade-in">
+            <span class="section-tag">ابدأ الآن</span>
+            <h2>نبرس طريقك نحو التميز الرقمي</h2>
+            <p>انضم لآلاف المطورين الذين يستخدمون نبراس لتحسين مواقعهم وبناء ويب أفضل.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    جرب مجاناً
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-book"></i>
+                    اقرأ التوثيق
+                </a>
+            </div>
+            <div class="newsletter">
+                <input type="email" placeholder="أدخل بريدك الإلكتروني..." aria-label="البريد الإلكتروني">
+                <button type="button">اشترك</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fas fa-lightbulb"></i>
+                    نبراس
+                </a>
+                <p>منصتك الشاملة لتحسين المواقع الإلكترونية. نساعدك على بناء ويب أسرع، أفضل، وأكثر شمولاً.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="جيت هب"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link" aria-label="لينكد إن"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>الروابط</h4>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#">التسعير</a></li>
+                    <li><a href="#">المدونة</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>الموارد</h4>
+                <ul>
+                    <li><a href="#">التوثيق</a></li>
+                    <li><a href="#">الأمثلة</a></li>
+                    <li><a href="#">الأدوات</a></li>
+                    <li><a href="#">المجتمع</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>الشركة</h4>
+                <ul>
+                    <li><a href="#">من نحن</a></li>
+                    <li><a href="#">الوظائف</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                    <li><a href="#">الخصوصية</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة © 2025 نبراس. صنع بـ 💛 للمطورين العرب.</p>
+        </div>
+    </footer>
+
+    <!-- Dark/Light Mode Toggle -->
+    <div class="mode-toggle" id="modeToggle" aria-label="تبديل الوضع">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Performance optimization: defer non-critical scripts
+        document.addEventListener('DOMContentLoaded', function() {
+            'use strict';
+
+            // Loading Screen
+            const loading = document.getElementById('loading');
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    loading.classList.add('hidden');
+                }, 800);
+            });
+
+            // Custom Cursor
+            const cursor = document.getElementById('cursor');
+            const cursorHoverElements = 'a, button, .feature-card, .audit-card, .importance-card, .plugin-card, .media-item, .timeline-content';
+            
+            document.addEventListener('mousemove', function(e) {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            // Hide cursor on touch devices
+            if ('ontouchstart' in window) {
+                cursor.style.display = 'none';
+            }
+
+            document.querySelectorAll(cursorHoverElements).forEach(function(el) {
+                el.addEventListener('mouseenter', function() {
+                    cursor.classList.add('hover');
+                });
+                el.addEventListener('mouseleave', function() {
+                    cursor.classList.remove('hover');
+                });
+            });
+
+            // Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+            let lastScroll = 0;
+            
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                lastScroll = currentScroll;
+            });
+
+            // Mobile Menu
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Tab Functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    tabBtns.forEach(function(b) {
+                        b.classList.remove('active');
+                    });
+                    tabContents.forEach(function(c) {
+                        c.classList.remove('active');
+                    });
+                    
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Fade In Animation
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        fadeObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            fadeElements.forEach(function(element) {
+                fadeObserver.observe(element);
+            });
+
+            // Smooth Scroll with offset for fixed navbar
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    e.preventDefault();
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        const navbarHeight = document.getElementById('navbar').offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Video Hover Play
+            document.querySelectorAll('.media-item video').forEach(function(video) {
+                video.addEventListener('mouseenter', function() {
+                    this.play().catch(function() {});
+                });
+                video.addEventListener('mouseleave', function() {
+                    this.pause();
+                    this.currentTime = 0;
+                });
+            });
+
+            // Dark/Light Mode Toggle
+            const modeToggle = document.getElementById('modeToggle');
+            const modeIcon = modeToggle.querySelector('i');
+            
+            // Check for saved preference or system preference
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            let isDarkMode = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+            
+            if (!isDarkMode) {
+                document.body.classList.add('light-mode');
+                modeIcon.classList.remove('fa-moon');
+                modeIcon.classList.add('fa-sun');
+            }
+            
+            modeToggle.addEventListener('click', function() {
+                isDarkMode = !isDarkMode;
+                document.body.classList.toggle('light-mode');
+                
+                if (isDarkMode) {
+                    modeIcon.classList.remove('fa-sun');
+                    modeIcon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    modeIcon.classList.remove('fa-moon');
+                    modeIcon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 500) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // FAQ Accordion with proper event handling
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(function(question) {
+                question.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const faqItem = this.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+                    
+                    // Close all FAQ items first
+                    document.querySelectorAll('.faq-item').forEach(function(item) {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                    }
+                });
+            });
+
+            // Stats Counter Animation
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            const statsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const finalValue = el.textContent;
+                        const numericValue = parseInt(finalValue.replace(/[^0-9]/g, ''));
+                        
+                        if (!el.dataset.animated) {
+                            el.dataset.animated = 'true';
+                            animateCounter(el, numericValue, finalValue.includes('+'));
+                        }
+                        
+                        statsObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            statNumbers.forEach(function(stat) {
+                statsObserver.observe(stat);
+            });
+
+            function animateCounter(el, target, hasPlus) {
+                const duration = 2000;
+                const startTime = performance.now();
+                const startValue = 0;
+                
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Easing function
+                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                    const currentValue = Math.floor(startValue + (target - startValue) * easeOutQuart);
+                    
+                    el.textContent = hasPlus ? currentValue + '+' : currentValue;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        el.textContent = hasPlus ? target + '+' : target;
+                    }
+                }
+                
+                requestAnimationFrame(update);
+            }
+
+            // Lazy loading for images
+            if ('IntersectionObserver' in window) {
+                const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+                
+                const imageObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.removeAttribute('data-src');
+                            }
+                            img.classList.add('loaded');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(img) {
+                    imageObserver.observe(img);
+                });
+            }
+
+            // Console watermark for developers
+            console.log(
+                '%c💡 نبراس - Nebras',
+                'font-size: 24px; font-weight: bold; color: #F59E0B;'
+            );
+            console.log(
+                '%cمطور بواسطة فريق نبراس ❤️',
+                'font-size: 12px; color: #94A3B8;'
+            );
+        });
+    </script>
+</body>
+</html>

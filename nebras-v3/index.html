@@ -1,0 +1,3961 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>نبراس - منصة Lighthouse التعليمية المتكاملة</title>
+    <meta name="description" content="نبراس هي منصتك الشاملة لتعلم Google Lighthouse وتحسين أداء المواقع. دورات متقدمة، أدوات تفاعلية، ومجتمع من المطورين.">
+    <meta name="keywords" content="Lighthouse, Google Lighthouse, تحسين أداء المواقع, SEO, سرعة المواقع, تطوير الويب">
+    <meta name="author" content="نبراس - Nebras Platform">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nebras.example.com">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="نبراس - منصة Lighthouse التعليمية المتكاملة">
+    <meta property="og:description" content="تعلم Google Lighthouse مع نبراس واحصل على شهادة معتمدة">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nebras.example.com">
+    <meta property="og:image" content="https://nebras.example.com/og-image.jpg">
+    <meta property="og:site_name" content="نبراس">
+    <meta property="og:locale" content="ar_AR">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="نبراس - منصة Lighthouse التعليمية">
+    <meta name="twitter:description" content="تعلم تحسين أداء المواقع مع Google Lighthouse">
+    <meta name="twitter:image" content="https://nebras.example.com/twitter-image.jpg">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "نبراس - Nebras Platform",
+        "description": "منصة تعليمية متخصصة في Google Lighthouse وتحسين أداء المواقع",
+        "url": "https://nebras.example.com",
+        "logo": "https://nebras.example.com/logo.png",
+        "sameAs": [
+            "https://twitter.com/nebrasplatform",
+            "https://facebook.com/nebrasplatform",
+            "https://linkedin.com/company/nebrasplatform"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+966-XX-XXX-XXXX",
+            "contactType": "customer service",
+            "availableLanguage": ["Arabic", "English"]
+        }
+    }
+    </script>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0F172A">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="نبراس">
+    
+    <!-- Preconnect and DNS Prefetch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.nebras.example.com">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ==================== CSS Variables ==================== */
+        :root {
+            /* Primary Colors */
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --primary-light: #3B82F6;
+            
+            /* Secondary Colors */
+            --secondary: #10B981;
+            --secondary-dark: #059669;
+            --secondary-light: #34D399;
+            
+            /* Accent Colors */
+            --accent: #F59E0B;
+            --accent-dark: #D97706;
+            --accent-light: #FBBF24;
+            
+            /* Background Colors - Dark Mode */
+            --bg-primary: #0F172A;
+            --bg-secondary: #1E293B;
+            --bg-tertiary: #334155;
+            --bg-card: rgba(30, 41, 59, 0.8);
+            --bg-glass: rgba(255, 255, 255, 0.05);
+            
+            /* Text Colors - Dark Mode */
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            
+            /* Border Colors */
+            --border-color: rgba(148, 163, 184, 0.1);
+            --border-hover: rgba(148, 163, 184, 0.2);
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.3);
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            --gradient-hero: linear-gradient(135deg, #0F172A 0%, #1E3A5F 50%, #0F172A 100%);
+            --gradient-card: linear-gradient(145deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 30px;
+            --radius-full: 50%;
+            
+            /* Spacing */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            --spacing-3xl: 64px;
+            
+            /* Navbar Height */
+            --navbar-height: 70px;
+        }
+        
+        /* Light Mode Variables */
+        body.light-mode {
+            --bg-primary: #F8FAFC;
+            --bg-secondary: #FFFFFF;
+            --bg-tertiary: #E2E8F0;
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --bg-glass: rgba(0, 0, 0, 0.03);
+            
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            
+            --border-color: rgba(15, 23, 42, 0.08);
+            --border-hover: rgba(15, 23, 42, 0.15);
+            
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.15);
+            
+            --gradient-hero: linear-gradient(135deg, #F8FAFC 0%, #E0F2FE 50%, #F8FAFC 100%);
+        }
+        
+        /* ==================== Reset & Base Styles ==================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            font-family: 'Tajawal', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gradient-hero);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            transition: background var(--transition-slow);
+        }
+        
+        body.light-mode {
+            background: var(--gradient-hero);
+        }
+        
+        body.loading {
+            overflow: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+        }
+        
+        input, textarea, select {
+            font-family: inherit;
+            outline: none;
+            border: none;
+        }
+        
+        ul, ol {
+            list-style: none;
+        }
+        
+        /* Selection */
+        ::selection {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-full);
+            border: 2px solid var(--bg-secondary);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+        
+        /* Focus Styles */
+        *:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        
+        /* ==================== Loading Screen ==================== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .loader::before, .loader::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-full);
+            border: 4px solid transparent;
+            border-top-color: var(--primary);
+            animation: spin 1s linear infinite;
+        }
+        
+        .loader::after {
+            border-top-color: var(--secondary);
+            animation-duration: 0.8s;
+            animation-direction: reverse;
+        }
+        
+        .loader-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* ==================== Navbar ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--navbar-height);
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all var(--transition-normal);
+        }
+        
+        body.light-mode .navbar {
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        body.light-mode .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .navbar-container {
+            max-width: 1400px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 var(--spacing-xl);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .nav-link {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: var(--bg-glass);
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: var(--radius-full);
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-input {
+            width: 0;
+            padding: var(--spacing-sm);
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            transition: all var(--transition-normal);
+            opacity: 0;
+        }
+        
+        .search-input:focus {
+            width: 220px;
+            padding: var(--spacing-sm) var(--spacing-md);
+            opacity: 1;
+        }
+        
+        .search-btn {
+            position: absolute;
+            left: 10px;
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: all var(--transition-fast);
+        }
+        
+        .search-btn:hover {
+            background: var(--bg-glass);
+            color: var(--primary);
+        }
+        
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .theme-toggle:hover {
+            background: var(--bg-glass);
+            color: var(--accent);
+            transform: rotate(15deg);
+        }
+        
+        .lang-toggle {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+        
+        .lang-toggle:hover {
+            background: var(--bg-glass);
+            color: var(--primary);
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: transform var(--transition-fast);
+        }
+        
+        .user-avatar:hover {
+            transform: scale(1.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+        }
+        
+        /* ==================== Mobile Menu ==================== */
+        .mobile-menu {
+            position: fixed;
+            top: var(--navbar-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--navbar-height));
+            background: var(--bg-primary);
+            transform: translateX(100%);
+            transition: transform var(--transition-normal);
+            z-index: 999;
+            overflow-y: auto;
+            padding: var(--spacing-xl);
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .mobile-nav-link {
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            transition: all var(--transition-fast);
+        }
+        
+        .mobile-nav-link:hover {
+            background: var(--bg-glass);
+            color: var(--primary);
+        }
+        
+        /* ==================== Sidebar ==================== */
+        .sidebar {
+            position: fixed;
+            top: var(--navbar-height);
+            right: 0;
+            width: 280px;
+            height: calc(100vh - var(--navbar-height));
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border-color);
+            padding: var(--spacing-xl);
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform var(--transition-normal);
+            z-index: 998;
+        }
+        
+        .sidebar.active {
+            transform: translateX(0);
+        }
+        
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .sidebar-close {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+        
+        .sidebar-close:hover {
+            background: var(--bg-glass);
+            color: var(--text-primary);
+        }
+        
+        .sidebar-section {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .sidebar-section-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all var(--transition-fast);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .sidebar-link:hover {
+            background: var(--bg-glass);
+            color: var(--text-primary);
+        }
+        
+        .sidebar-link.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+        
+        .sidebar-link i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* ==================== Hero Section ==================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: calc(var(--navbar-height) + var(--spacing-3xl)) var(--spacing-xl) var(--spacing-3xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .hero-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: var(--radius-full);
+            opacity: 0.3;
+            animation: float 15s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(-10px) translateX(-10px); }
+            75% { transform: translateY(15px) translateX(5px); }
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .hero-badge i {
+            color: var(--accent);
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-lg);
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+            opacity: 0;
+        }
+        
+        .hero-title .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-description {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-2xl);
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            opacity: 0;
+        }
+        
+        .hero-stats {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-2xl);
+            margin-top: var(--spacing-3xl);
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+        
+        .hero-stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: var(--spacing-xs);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ==================== Buttons ==================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-md), var(--shadow-glow);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg), 0 0 60px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-glass);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+        
+        .btn-accent {
+            background: var(--gradient-accent);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg), 0 0 40px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-secondary);
+        }
+        
+        .btn-ghost:hover {
+            background: var(--bg-glass);
+            color: var(--text-primary);
+        }
+        
+        .btn-icon {
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border-radius: var(--radius-full);
+        }
+        
+        .btn-lg {
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            font-size: 1.1rem;
+        }
+        
+        .btn-sm {
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: 0.85rem;
+        }
+        
+        /* ==================== Sections ==================== */
+        .section {
+            padding: var(--spacing-3xl) var(--spacing-xl);
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-2xl);
+        }
+        
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        /* ==================== Cards ==================== */
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-normal);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-md);
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .card-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* ==================== Grid Layouts ==================== */
+        .grid {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        /* ==================== Features Section ==================== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* ==================== Courses Section ==================== */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .course-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+        
+        .course-thumbnail {
+            position: relative;
+            height: 200px;
+            background: var(--gradient-primary);
+            overflow: hidden;
+        }
+        
+        .course-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .course-duration {
+            position: absolute;
+            bottom: var(--spacing-md);
+            left: var(--spacing-md);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .course-level {
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .course-level.beginner {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .course-level.intermediate {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .course-level.advanced {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .course-content {
+            padding: var(--spacing-xl);
+        }
+        
+        .course-category {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .course-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.4;
+        }
+        
+        .course-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .course-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .course-instructor {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .course-instructor-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .course-instructor-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .course-price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+        
+        .course-price .old-price {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-left: var(--spacing-sm);
+        }
+        
+        /* ==================== Gamification Section ==================== */
+        .gamification-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .challenge-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+        
+        .challenge-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .challenge-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-lg);
+            border-radius: var(--radius-full);
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .challenge-icon::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: var(--radius-full);
+            border: 3px dashed var(--accent);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+        
+        .challenge-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .challenge-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .challenge-progress {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-full);
+            height: 8px;
+            margin-bottom: var(--spacing-sm);
+            overflow: hidden;
+        }
+        
+        .challenge-progress-bar {
+            height: 100%;
+            background: var(--gradient-secondary);
+            border-radius: var(--radius-full);
+            transition: width var(--transition-slow);
+        }
+        
+        .challenge-reward {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        /* Leaderboard */
+        .leaderboard {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .leaderboard-header {
+            background: var(--gradient-primary);
+            padding: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .leaderboard-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .leaderboard-list {
+            padding: var(--spacing-md);
+        }
+        
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+        }
+        
+        .leaderboard-item:hover {
+            background: var(--bg-glass);
+        }
+        
+        .leaderboard-rank {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .leaderboard-rank.gold {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+        }
+        
+        .leaderboard-rank.silver {
+            background: linear-gradient(135deg, #C0C0C0, #A0A0A0);
+            color: #000;
+        }
+        
+        .leaderboard-rank.bronze {
+            background: linear-gradient(135deg, #CD7F32, #8B4513);
+            color: #fff;
+        }
+        
+        .leaderboard-user {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .leaderboard-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .leaderboard-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .leaderboard-points {
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        /* Badges */
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .badge {
+            text-align: center;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+        }
+        
+        .badge:hover {
+            background: var(--bg-glass);
+            transform: scale(1.05);
+        }
+        
+        .badge.locked {
+            opacity: 0.4;
+            filter: grayscale(1);
+        }
+        
+        .badge-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto var(--spacing-sm);
+            border-radius: var(--radius-full);
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .badge-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        /* ==================== Statistics Section ==================== */
+        .statistics-section {
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .statistics-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+        
+        .stat-value {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* ==================== Testimonials Section ==================== */
+        .testimonials-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .testimonials-container {
+            display: flex;
+            transition: transform var(--transition-slow);
+        }
+        
+        .testimonial-card {
+            min-width: 100%;
+            padding: var(--spacing-xl);
+        }
+        
+        .testimonial-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            text-align: center;
+            position: relative;
+        }
+        
+        .testimonial-quote {
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-xl);
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            line-height: 1.9;
+            margin-bottom: var(--spacing-xl);
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .testimonial-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .testimonial-stars {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .testimonials-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .testimonial-nav-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-full);
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+        
+        .testimonial-nav-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        
+        /* ==================== FAQ Section ==================== */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+        
+        .faq-item:hover {
+            border-color: var(--border-hover);
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-md);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: right;
+            transition: all var(--transition-fast);
+        }
+        
+        .faq-question:hover {
+            color: var(--primary);
+        }
+        
+        .faq-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            background: var(--bg-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            flex-shrink: 0;
+        }
+        
+        .faq-item.active .faq-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-normal);
+        }
+        
+        .faq-answer-content {
+            padding: 0 var(--spacing-lg) var(--spacing-lg);
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        /* ==================== Newsletter Section ==================== */
+        .newsletter-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .newsletter-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-xl);
+            border-radius: var(--radius-full);
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .newsletter-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .newsletter-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: var(--spacing-md);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .newsletter-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        /* ==================== Contact Section ==================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--spacing-2xl);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            padding: var(--spacing-xl);
+        }
+        
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background: var(--bg-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .contact-value {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .contact-form {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: var(--spacing-md);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: var(--spacing-lg);
+        }
+        
+        /* ==================== Footer ==================== */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-3xl) var(--spacing-xl) var(--spacing-xl);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: var(--spacing-2xl);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer-brand {
+            max-width: 300px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            background: var(--bg-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .footer-link {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+        
+        .footer-link:hover {
+            color: var(--primary);
+            padding-right: var(--spacing-sm);
+        }
+        
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--spacing-2xl) auto 0;
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+        
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+        
+        .footer-legal-link {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-legal-link:hover {
+            color: var(--primary);
+        }
+        
+        /* ==================== Back to Top Button ==================== */
+        .back-to-top {
+            position: fixed;
+            bottom: var(--spacing-xl);
+            left: var(--spacing-xl);
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all var(--transition-normal);
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl), 0 0 30px rgba(37, 99, 235, 0.4);
+        }
+        
+        /* ==================== Notifications Panel ==================== */
+        .notifications-panel {
+            position: fixed;
+            top: var(--navbar-height);
+            left: var(--spacing-xl);
+            width: 380px;
+            max-height: calc(100vh - var(--navbar-height) - var(--spacing-2xl));
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            transform: translateY(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            z-index: 1001;
+            overflow: hidden;
+        }
+        
+        .notifications-panel.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .notifications-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .notifications-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .notifications-mark-all {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .notifications-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .notification-item {
+            display: flex;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .notification-item:hover {
+            background: var(--bg-glass);
+        }
+        
+        .notification-item.unread {
+            background: rgba(37, 99, 235, 0.05);
+        }
+        
+        .notification-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .notification-icon.success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--secondary);
+        }
+        
+        .notification-icon.warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent);
+        }
+        
+        .notification-icon.info {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+        }
+        
+        .notification-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .notification-text {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .notification-time {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        /* ==================== Chatbot ==================== */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: var(--spacing-xl);
+            right: var(--spacing-xl);
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-secondary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg), 0 0 30px rgba(16, 185, 129, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all var(--transition-normal);
+        }
+        
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: var(--spacing-xl);
+            width: 400px;
+            height: 500px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            flex-direction: column;
+            transform: translateY(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            z-index: 1001;
+            overflow: hidden;
+        }
+        
+        .chatbot-container.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .chatbot-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: var(--gradient-secondary);
+            color: white;
+        }
+        
+        .chatbot-title {
+            font-weight: 700;
+        }
+        
+        .chatbot-messages {
+            flex: 1;
+            padding: var(--spacing-lg);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .chat-message {
+            max-width: 80%;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            font-size: 0.95rem;
+        }
+        
+        .chat-message.bot {
+            background: var(--bg-glass);
+            color: var(--text-primary);
+            align-self: flex-start;
+            border-bottom-right-radius: var(--radius-sm);
+        }
+        
+        .chat-message.user {
+            background: var(--gradient-primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-left-radius: var(--radius-sm);
+        }
+        
+        .chatbot-input {
+            display: flex;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .chatbot-input input {
+            flex: 1;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+        
+        .chatbot-send {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+        
+        .chatbot-send:hover {
+            transform: scale(1.1);
+        }
+        
+        /* ==================== Certificate Section ==================== */
+        .certificate-preview {
+            background: var(--bg-card);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certificate-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+        
+        .certificate-badge {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto var(--spacing-xl);
+            border-radius: var(--radius-full);
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .certificate-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .certificate-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        /* ==================== Media Hub ==================== */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .media-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+        
+        .media-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .media-thumbnail {
+            position: relative;
+            height: 180px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .media-thumbnail i {
+            font-size: 3rem;
+            color: white;
+            opacity: 0.8;
+        }
+        
+        .media-play-btn {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-full);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .media-play-btn:hover {
+            transform: scale(1.2);
+        }
+        
+        .media-content {
+            padding: var(--spacing-lg);
+        }
+        
+        .media-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .media-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        /* ==================== Discord Integration ==================== */
+        .discord-section {
+            background: #5865F2;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            color: white;
+            text-align: center;
+        }
+        
+        .discord-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+        
+        .discord-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .discord-description {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .discord-btn {
+            background: white;
+            color: #5865F2;
+            font-weight: 700;
+        }
+        
+        .discord-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* ==================== Custom Cursor ==================== */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-full);
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+            display: none;
+        }
+        
+        .custom-cursor.hover {
+            width: 50px;
+            height: 50px;
+            border-color: var(--secondary);
+            background: rgba(16, 185, 129, 0.1);
+        }
+        
+        @media (pointer: fine) {
+            .custom-cursor {
+                display: block;
+            }
+        }
+        
+        /* ==================== Tooltips ==================== */
+        .tooltip {
+            position: relative;
+        }
+        
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-size: 0.8rem;
+            white-space: nowrap;
+            border-radius: var(--radius-sm);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-fast);
+            z-index: 1002;
+        }
+        
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-5px);
+        }
+        
+        /* ==================== Print Styles ==================== */
+        @media print {
+            .navbar, .sidebar, .back-to-top, .chatbot-toggle, .loading-screen {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+        
+        /* ==================== Responsive Styles ==================== */
+        @media (max-width: 1200px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .nav-links, .nav-actions {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .statistics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --navbar-height: 60px;
+            }
+            
+            .hero-stats {
+                gap: var(--spacing-lg);
+            }
+            
+            .hero-stat-value {
+                font-size: 2rem;
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .notifications-panel {
+                left: var(--spacing-md);
+                right: var(--spacing-md);
+                width: auto;
+            }
+            
+            .chatbot-container {
+                right: var(--spacing-md);
+                left: var(--spacing-md);
+                width: auto;
+            }
+            
+            .back-to-top, .chatbot-toggle {
+                bottom: var(--spacing-md);
+            }
+            
+            .back-to-top {
+                left: var(--spacing-md);
+            }
+            
+            .chatbot-toggle {
+                right: var(--spacing-md);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .stat-value {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* ==================== Reduced Motion ==================== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .hero-particle {
+                animation: none;
+            }
+        }
+        
+        /* ==================== High Contrast Mode ==================== */
+        @media (prefers-contrast: high) {
+            :root {
+                --border-color: rgba(255, 255, 255, 0.3);
+                --text-secondary: #E2E8F0;
+            }
+            
+            body.light-mode {
+                --border-color: rgba(0, 0, 0, 0.3);
+                --text-secondary: #1E293B;
+            }
+            
+            .card, .btn {
+                border-width: 2px;
+            }
+        }
+    </style>
+</head>
+<body class="loading">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+        <div class="loader-text">جاري تحميل نبراس...</div>
+    </div>
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <div class="logo" data-aos="fade-left">
+                <div class="logo-icon">
+                    <i class="fas fa-lighthouse"></i>
+                </div>
+                <span>نبراس</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" data-i18n="home">الرئيسية</a></li>
+                <li><a href="#features" class="nav-link" data-i18n="features">الميزات</a></li>
+                <li><a href="#courses" class="nav-link" data-i18n="courses">الدورات</a></li>
+                <li><a href="#gamification" class="nav-link" data-i18n="gamification">التحديات</a></li>
+                <li><a href="#media" class="nav-link" data-i18n="media">المكتبة</a></li>
+                <li><a href="#community" class="nav-link" data-i18n="community">المجتمع</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="بحث..." id="searchInput">
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                
+                <button class="theme-toggle tooltip" id="themeToggle" data-tooltip="تبديل الوضع">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="lang-toggle" id="langToggle">EN</button>
+                
+                <button class="btn-notifications tooltip" id="notificationsBtn" data-tooltip="الإشعارات">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge" id="notificationBadge">3</span>
+                </button>
+                
+                <div class="user-avatar" id="userAvatar">أ م</div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#home" class="mobile-nav-link">
+                <i class="fas fa-home"></i>
+                الرئيسية
+            </a></li>
+            <li><a href="#features" class="mobile-nav-link">
+                <i class="fas fa-star"></i>
+                الميزات
+            </a></li>
+            <li><a href="#courses" class="mobile-nav-link">
+                <i class="fas fa-graduation-cap"></i>
+                الدورات
+            </a></li>
+            <li><a href="#gamification" class="mobile-nav-link">
+                <i class="fas fa-trophy"></i>
+                التحديات
+            </a></li>
+            <li><a href="#media" class="mobile-nav-link">
+                <i class="fas fa-photo-video"></i>
+                المكتبة
+            </a></li>
+            <li><a href="#community" class="mobile-nav-link">
+                <i class="fas fa-users"></i>
+                المجتمع
+            </a></li>
+            <li><a href="#faq" class="mobile-nav-link">
+                <i class="fas fa-question-circle"></i>
+                الأسئلة الشائعة
+            </a></li>
+            <li><a href="#contact" class="mobile-nav-link">
+                <i class="fas fa-envelope"></i>
+                تواصل معنا
+            </a></li>
+        </ul>
+    </div>
+    
+    <!-- Notifications Panel -->
+    <div class="notifications-panel" id="notificationsPanel">
+        <div class="notifications-header">
+            <span class="notifications-title">الإشعارات</span>
+            <span class="notifications-mark-all" id="markAllRead">تعليم الكل كمقروء</span>
+        </div>
+        <div class="notifications-list" id="notificationsList">
+            <div class="notification-item unread">
+                <div class="notification-icon success">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-text">تهانينا! أكملت دورة Lighthouse للمبتدئين</div>
+                    <div class="notification-time">منذ 5 دقائق</div>
+                </div>
+            </div>
+            <div class="notification-item unread">
+                <div class="notification-icon warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-text">تحدي جديد متاح: حسّن 5 مواقع هذا الأسبوع</div>
+                    <div class="notification-time">منذ ساعة</div>
+                </div>
+            </div>
+            <div class="notification-item unread">
+                <div class="notification-icon info">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-text">تم إضافة درس جديد: تحسين الصور للويب</div>
+                    <div class="notification-time">منذ 3 ساعات</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-content">
+            <div class="hero-badge" data-aos="fade-up">
+                <i class="fas fa-bolt"></i>
+                الإصدار 3.0 متاح الآن
+            </div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                أتقن أداء المواقع مع <span class="highlight">Google Lighthouse</span>
+            </h1>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                منصة نبراس هي طريقك نحو إتقان أدوات تحسين الأداء. تعلم، تدرب، واحصل على شهادات معتمدة. انضم لآلاف المطورين الذين حسّنوا مواقعهم معنا.
+            </p>
+            <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
+                <a href="#courses" class="btn btn-primary btn-lg">
+                    <i class="fas fa-rocket"></i>
+                    ابدأ التعلم الآن
+                </a>
+                <a href="#features" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-play"></i>
+                    شاهد العرض
+                </a>
+            </div>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                <div class="hero-stat">
+                    <div class="hero-stat-value" data-count="15000">0</div>
+                    <div class="hero-stat-label">طالب مسجل</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value" data-count="50">0</div>
+                    <div class="hero-stat-label">دورة متاحة</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value" data-count="200">0</div>
+                    <div class="hero-stat-label">مدرس خبير</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value" data-count="98">0</div>
+                    <div class="hero-stat-label">% رضا الطلاب</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">
+                <i class="fas fa-star"></i>
+                مميزات المنصة
+            </div>
+            <h2 class="section-title">كل ما تحتاجه لتصبح خبيراً</h2>
+            <p class="section-description">
+                نقدم لك مجموعة شاملة من الأدوات والمحتوى التعليمي الذي سيأخذ بيدك من المبتدئ إلى الاحتراف
+            </p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="card-title">دورات تعليمية شاملة</h3>
+                <p class="card-description">
+                    دورات مصممة بعناية من قبل خبراء في المجال، تغطي جميع جوانب Lighthouse من الأساسيات إلى التقنيات المتقدمة.
+                </p>
+            </div>
+            
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3 class="card-title">تمارين عملية تفاعلية</h3>
+                <p class="card-description">
+                    تطبيقات وأدوات تفاعلية تتيح لك تطبيق ما تعلمته على مشاريع حقيقية والحصول على تغذية راجعة فورية.
+                </p>
+            </div>
+            
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="card-title">شهادات معتمدة دولياً</h3>
+                <p class="card-description">
+                    احصل على شهادات معتمدة بعد إكمال كل دورة، مع إمكانية مشاركة شهاداتك على LinkedIn وتحسين فرص عملك.
+                </p>
+            </div>
+            
+            <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="card-title">مجتمع نشط وداعم</h3>
+                <p class="card-description">
+                    انضم لآلاف المطورين، شارك تجاربك، اطرح أسئلتك، وتعلم من خبرات الآخرين في مجتمعنا النشط.
+                </p>
+            </div>
+            
+            <div class="card" data-aos="fade-up" data-aos-delay="500">
+                <div class="card-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="card-title">مساعد ذكي مدعوم بالذكاء الاصطناعي</h3>
+                <p class="card-description">
+                    مساعدك الشخصي المتاح على مدار الساعة للإجابة على أسئلتك وتقديم شروحات إضافية ودعم فني.
+                </p>
+            </div>
+            
+            <div class="card" data-aos="fade-up" data-aos-delay="600">
+                <div class="card-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="card-title">تعلم في أي وقت ومكان</h3>
+                <p class="card-description">
+                    تطبيق جوال يتيح لك الوصول للمحتوى دون اتصال بالإنترنت. تعلم في الطريق أو أثناء تنقلك.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Statistics Section -->
+    <section class="section statistics-section">
+        <div class="statistics-grid">
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-value" data-count="100">0</div>
+                <div class="stat-label">ألف ساعة محتوى</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-value" data-count="50">0</div>
+                <div class="stat-label">ألف شهادة صادرة</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-value" data-count="200">0</div>
+                <div class="stat-label">ألف موقع محسّن</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-value" data-count="98">0</div>
+                <div class="stat-label">نقطة رضا متوسطة</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Courses Section -->
+    <section class="section" id="courses">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">
+                <i class="fas fa-book-open"></i>
+                أحدث الدورات
+            </div>
+            <h2 class="section-title">ابدأ رحلتك التعليمية اليوم</h2>
+            <p class="section-description">
+                اختر من بين دوراتنا المتخصصة التي تغطي جميع جوانب تحسين أداء المواقع
+            </p>
+        </div>
+        
+        <div class="courses-grid">
+            <div class="course-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="course-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop" alt="أساسيات Lighthouse" loading="lazy">
+                    <span class="course-duration">
+                        <i class="fas fa-clock"></i>
+                        8 ساعات
+                    </span>
+                    <span class="course-level beginner">مبتدئ</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-category">Lighthouse</div>
+                    <h3 class="course-title">أساسيات Lighthouse للمبتدئين</h3>
+                    <p class="course-description">
+                        تعلم من الصفر如何使用 Lighthouse لتحليل مواقع الويب وتحسين أدائها. دورة مثالية للمبتدئين.
+                    </p>
+                    <div class="course-meta">
+                        <div class="course-instructor">
+                            <div class="course-instructor-avatar">أ م</div>
+                            <span class="course-instructor-name">أحمد محمد</span>
+                        </div>
+                        <div class="course-price">
+                            <span class="old-price">$99</span>
+                            $49
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="course-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="course-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop" alt="تحسين الأداء" loading="lazy">
+                    <span class="course-duration">
+                        <i class="fas fa-clock"></i>
+                        12 ساعة
+                    </span>
+                    <span class="course-level intermediate">متوسط</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-category">الأداء</div>
+                    <h3 class="course-title">تقنيات تحسين الأداء المتقدمة</h3>
+                    <p class="course-description">
+                        تعمق في تقنيات متقدمة لتحسين سرعة المواقع، من ضغط الصور إلى تحسين الكود وتطبيق أفضل الممارسات.
+                    </p>
+                    <div class="course-meta">
+                        <div class="course-instructor">
+                            <div class="course-instructor-avatar">س ج</div>
+                            <span class="course-instructor-name">سارة جمال</span>
+                        </div>
+                        <div class="course-price">
+                            <span class="old-price">$149</span>
+                            $79
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="course-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="course-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" alt="Core Web Vitals" loading="lazy">
+                    <span class="course-duration">
+                        <i class="fas fa-clock"></i>
+                        6 ساعات
+                    </span>
+                    <span class="course-level advanced">متقدم</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-category">SEO</div>
+                    <h3 class="course-title">Core Web Vitals والسيو</h3>
+                    <p class="course-description">
+                        فهم مقاييس Core Web Vitals وتأثيرها على ترتيب المواقع في Google، وكيفية تحسينها للحصول على أفضل النتائج.
+                    </p>
+                    <div class="course-meta">
+                        <div class="course-instructor">
+                            <div class="course-instructor-avatar">خ د</div>
+                            <span class="course-instructor-name">خالد داود</span>
+                        </div>
+                        <div class="course-price">
+                            <span class="old-price">$129</span>
+                            $69
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: var(--spacing-2xl);" data-aos="fade-up">
+            <a href="#" class="btn btn-secondary btn-lg">
+                <i class="fas fa-book"></i>
+                عرض جميع الدورات
+            </a>
+        </div>
+    </section>
+    
+    <!-- Gamification Section -->
+    <section class="section gamification-section" id="gamification">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">
+                <i class="fas fa-trophy"></i>
+                نظام التلعيب
+            </div>
+            <h2 class="section-title">تحديات ومكافآت أسبوعية</h2>
+            <p class="section-description">
+                شارك في التحديات الأسبوعية، ارتقِ في لوحة المتصدرين، واكسب شارات إنجاز مميزة
+            </p>
+        </div>
+        
+        <div class="grid grid-3" style="max-width: 1200px; margin: 0 auto;" data-aos="fade-up">
+            <div class="challenge-card">
+                <div class="challenge-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="challenge-title">تحدي الأسبوع: المبتدئ</h3>
+                <p class="challenge-description">حلّل 5 مواقع باستخدام Lighthouse واكتب تقريراً عن كل منها</p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar" style="width: 60%"></div>
+                </div>
+                <div class="challenge-reward">3/5 مكتمل • مكافأة: 100 نقطة</div>
+            </div>
+            
+            <div class="challenge-card">
+                <div class="challenge-icon" style="background: var(--gradient-primary);">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="challenge-title">تحدي الأسبوع: المتقدم</h3>
+                <p class="challenge-description">حسّن درجة الأداء لموقعين لتصل إلى 90+ نقطة</p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar" style="width: 30%"></div>
+                </div>
+                <div class="challenge-reward">1/2 مكتمل • مكافأة: 250 نقطة</div>
+            </div>
+            
+            <div class="challenge-card">
+                <div class="challenge-icon" style="background: var(--gradient-accent);">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h3 class="challenge-title">تحدي الشهر: الذهبي</h3>
+                <p class="challenge-description">أكمّل جميع دورات الأساسيات واحصل على الشهادة الذهبية</p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar" style="width: 75%"></div>
+                </div>
+                <div class="challenge-reward">3/4 مكتمل • مكافأة: 1000 نقطة</div>
+            </div>
+        </div>
+        
+        <div class="grid grid-2" style="max-width: 1200px; margin: var(--spacing-2xl) auto 0; gap: var(--spacing-xl);" data-aos="fade-up">
+            <div class="leaderboard">
+                <div class="leaderboard-header">
+                    <h3 class="leaderboard-title">
+                        <i class="fas fa-crown"></i>
+                        لوحة المتصدرين
+                    </h3>
+                </div>
+                <div class="leaderboard-list">
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank gold">1</div>
+                        <div class="leaderboard-user">
+                            <div class="leaderboard-avatar">أ م</div>
+                            <span class="leaderboard-name">أحمد محمد</span>
+                        </div>
+                        <span class="leaderboard-points">12,450 نقطة</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank silver">2</div>
+                        <div class="leaderboard-user">
+                            <div class="leaderboard-avatar">س ج</div>
+                            <span class="leaderboard-name">سارة جمال</span>
+                        </div>
+                        <span class="leaderboard-points">11,200 نقطة</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank bronze">3</div>
+                        <div class="leaderboard-user">
+                            <div class="leaderboard-avatar">خ د</div>
+                            <span class="leaderboard-name">خالد داود</span>
+                        </div>
+                        <span class="leaderboard-points">10,800 نقطة</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank">4</div>
+                        <div class="leaderboard-user">
+                            <div class="leaderboard-avatar">م س</div>
+                            <span class="leaderboard-name">محمد سعيد</span>
+                        </div>
+                        <span class="leaderboard-points">9,500 نقطة</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank">5</div>
+                        <div class="leaderboard-user">
+                            <div class="leaderboard-avatar">ل ك</div>
+                            <span class="leaderboard-name">لمى كريم</span>
+                        </div>
+                        <span class="leaderboard-points">8,900 نقطة</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--spacing-lg);">
+                    <i class="fas fa-medal"></i>
+                    شارات الإنجاز
+                </h3>
+                <div class="badges-grid">
+                    <div class="badge">
+                        <div class="badge-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="badge-name">نجم صاعد</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon" style="background: var(--gradient-secondary);">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="badge-name">أول شهادة</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon" style="background: var(--gradient-accent);">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="badge-name">7 أيام متتالية</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon" style="background: var(--gradient-primary);">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="badge-name">بطل التحدي</div>
+                    </div>
+                    <div class="badge locked">
+                        <div class="badge-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="badge-name">الذهبية</div>
+                    </div>
+                    <div class="badge locked">
+                        <div class="badge-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="badge-name">الماس</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Media Hub Section -->
+    <section class="section" id="media">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">
+                <i class="fas fa-photo-video"></i>
+                المكتبة الإعلامية
+            </div>
+            <h2 class="section-title">فيديوهات ودورات بودكاست حصرية</h2>
+            <p class="section-description">
+                استكشف مكتبتنا الغنية بالمحتوى المرئي والصوتي المصمم خصيصاً لتعليمك
+            </p>
+        </div>
+        
+        <div class="media-grid" data-aos="fade-up">
+            <div class="media-card">
+                <div class="media-thumbnail">
+                    <i class="fas fa-play-circle"></i>
+                    <div class="media-play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="media-content">
+                    <h4 class="media-title">مقدمة في Google Lighthouse</h4>
+                    <div class="media-meta">
+                        <span><i class="fas fa-clock"></i> 15 دقيقة</span>
+                        <span><i class="fas fa-eye"></i> 5.2K</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="media-card">
+                <div class="media-thumbnail" style="background: var(--gradient-secondary);">
+                    <i class="fas fa-headphones"></i>
+                    <div class="media-play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="media-content">
+                    <h4 class="media-title">بودكاست: مستقبل أداء الويب</h4>
+                    <div class="media-meta">
+                        <span><i class="fas fa-clock"></i> 45 دقيقة</span>
+                        <span><i class="fas fa-ear-listen"></i> 3.8K</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="media-card">
+                <div class="media-thumbnail" style="background: var(--gradient-accent);">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="media-play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="media-content">
+                    <h4 class="media-title">شرح Core Web Vitals بالتفصيل</h4>
+                    <div class="media-meta">
+                        <span><i class="fas fa-clock"></i> 30 دقيقة</span>
+                        <span><i class="fas fa-eye"></i> 4.1K</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Community Section -->
+    <section class="section" id="community">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">
+                <i class="fas fa-users"></i>
+                مجتمع نبراس
+            </div>
+            <h2 class="section-title">انضم لمجتمعنا على Discord</h2>
+            <p class="section-description">
+                تواصل مع آلاف المطورين، شارك معرفتك، واحصل على المساعدة من الخبراء
+            </p>
+        </div>
+        
+        <div class="discord-section" data-aos="fade-up" style="max-width: 800px; margin: 0 auto;">
+            <div class="discord-icon">
+                <i class="fab fa-discord"></i>
+            </div>
+            <h3 class="discord-title">انضم لقناة Discord الرسمية</h3>
+            <p class="discord-description">
+                أكثر من 10,000 عضو يشاركون في النقاشات اليومية، ومشاركة الأكواد، والدعم المتبادل بين المطورين
+            </p>
+            <a href="#" class="btn discord-btn">
+                <i class="fab fa-discord"></i>
+                انضم الآن
+            </a>
+        </div>
+    </section>
+    
+    <!-- Certificates Section -->
+    <section class="section">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">
+                <i class="fas fa-certificate"></i>
+                الشهادات
+            </div>
+            <h2 class="section-title">احصل على شهادتك الرقمية</h2>
+            <p class="section-description">
+                أكمل الدورات واجمع الشارات للحصول على شهادات رقمية قابلة للتحقق
+            </p>
+        </div>
+        
+        <div class="certificate-preview" data-aos="fade-up" style="max-width: 600px; margin: 0 auto;">
+            <div class="certificate-badge">
+                <i class="fas fa-award"></i>
+            </div>
+            <h3 class="certificate-title">شهادة إتقان Lighthouse</h3>
+            <p class="certificate-description">
+                تُمنح هذه الشهادة لمن أتم جميع دورات الأساسيات واجتاز الاختبارات النهائية بنجاح
+            </p>
+            <a href="#" class="btn btn-primary">
+                <i class="fas fa-download"></i>
+                تحميل نموذج الشهادة
+            </a>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">
+                <i class="fas fa-quote-right"></i>
+                آراء الطلاب
+            </div>
+            <h2 class="section-title">ماذا يقول طلابنا</h2>
+            <p class="section-description">
+                قصص نجاح حقيقية من طلاب حققوا نتائج مذهلة بعد تعلمهم معنا
+            </p>
+        </div>
+        
+        <div class="testimonials-slider" data-aos="fade-up">
+            <div class="testimonials-container" id="testimonialsContainer">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left testimonial-quote"></i>
+                        <p class="testimonial-text">
+                            "منذ أن تعلمت على منصة نبراس، تحسنت درجة أداء موقعي من 45 إلى 95! دورات مفصلة وشروحات واضحة جعلت الأمر سهلاً جداً. أنصح كل مطور بالاشتراك."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">أ م</div>
+                            <div class="testimonial-name">أحمد محمد</div>
+                            <div class="testimonial-role">مطور ويب كامل</div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left testimonial-quote"></i>
+                        <p class="testimonial-text">
+                            "نظام التحديات الأسبوعية كان محفزاً جداً لي. أصبحت أتعلم بشكل منتظم وأحصل على شارات الإنجاز. المجتمع أيضاً رائع دائماً هناك شخص يساعدك."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">س ج</div>
+                            <div class="testimonial-name">سارة جمال</div>
+                            <div class="testimonial-role">مهندسة واجهات أمامية</div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left testimonial-quote"></i>
+                        <p class="testimonial-text">
+                            "الشهادة التي حصلت عليها ساعدتني في الحصول على وظيفة أحلامي! صاحب العمل لاحظ الشهادات على LinkedIN وأعجبه كثيراً."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">خ د</div>
+                            <div class="testimonial-name">خالد داود</div>
+                            <div class="testimonial-role">مطور React</div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonials-nav">
+                <button class="testimonial-nav-btn" id="testimonialPrev">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="testimonial-dots" id="testimonialDots"></div>
+                <button class="testimonial-nav-btn" id="testimonialNext">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">
+                <i class="fas fa-question-circle"></i>
+                الأسئلة الشائعة
+            </div>
+            <h2 class="section-title">إجابات على أسئلتك الشائعة</h2>
+            <p class="section-description">
+                هل لديك سؤال؟ ربما تجد الإجابة هنا
+            </p>
+        </div>
+        
+        <div class="faq-list" data-aos="fade-up">
+            <div class="faq-item">
+                <button class="faq-question">
+                    ما هي المتطلبات الأساسية للبدء؟
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        لا تحتاج لأي خبرة مسبقة! دوراتنا مصممة للمبتدئين تماماً. كل ما تحتاجه هو جهاز كمبيوتر واتصال بالإنترنت والرغبة في التعلم. سنأخذك من الأساسيات إلى الاحتراف خطوة بخطوة.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    هل يمكنني الدراسة على هاتفي المحمول؟
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        بالتأكيد! منصة نبراس متجاوبة بالكامل وتعمل بسلاسة على جميع الأجهزة. كما أننا نوفر تطبيقاً للهاتف يتيح لك تحميل الدورات والمشاهدة بدون اتصال بالإنترنت.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    هل الشهادات معترف بها؟
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        نعم! شهاداتنا صادرة من منصة نبراس المعتمدة وتُضاف تلقائياً إلى ملفك الشخصي على LinkedIN. العديد من طلابنا حصلوا على وظائف مميزة بفضل هذه الشهادات.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    ما هي سياسة الاسترجاع؟
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        نحن واثقون من جودة محتوىنا! إذا لم تكن راضياً خلال أول 30 يوماً، يمكنك طلب استرجاع كامل للمبلغ بدون أي أسئلة. رضاك هو أولويتنا.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    هل يمكنني الوصول للمحتوى بعد انتهاء الاشتراك؟
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        نعم! حتى بعد انتهاء اشتراكك، ستحتفظ بإمكانية الوصول إلى جميع الشهادات التي حصلت عليها والدورات التي أكملتها. يمكنك دائماً العودة لمراجعة المحتوى في أي وقت.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="section newsletter-section">
+        <div class="newsletter-content" data-aos="fade-up">
+            <div class="newsletter-icon">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h3 class="newsletter-title">اشترك في نشرتنا البريدية</h3>
+            <p class="newsletter-description">
+                احصل على آخر المقالات والدورات والنصائح مباشرة في بريدك الإلكتروني
+            </p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" class="newsletter-input" placeholder="أدخل بريدك الإلكتروني" required>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                    اشترك
+                </button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-badge">
+                <i class="fas fa-envelope"></i>
+                تواصل معنا
+            </div>
+            <h2 class="section-title">هل لديك سؤال؟ نحن هنا للمساعدة</h2>
+            <p class="section-description">
+                لا تتردد في التواصل معنا. فريقنا سيجيب عليك في أقرب وقت ممكن
+            </p>
+        </div>
+        
+        <div class="contact-grid" data-aos="fade-up">
+            <div class="contact-info">
+                <h3 class="contact-title">معلومات التواصل</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <div class="contact-label">العنوان</div>
+                        <div class="contact-value">الرياض، المملكة العربية السعودية</div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <div class="contact-label">البريد الإلكتروني</div>
+                        <div class="contact-value">info@nebras.example.com</div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <div class="contact-label">الهاتف</div>
+                        <div class="contact-value">+966-XX-XXX-XXXX</div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <div class="contact-label">ساعات العمل</div>
+                        <div class="contact-value">السبت - الخميس: 9ص - 6م</div>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">الاسم الكامل</label>
+                        <input type="text" class="form-input" placeholder="أدخل اسمك" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">البريد الإلكتروني</label>
+                        <input type="email" class="form-input" placeholder="أدخل بريدك" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">الموضوع</label>
+                    <select class="form-select">
+                        <option>استفسار عام</option>
+                        <option>دعم فني</option>
+                        <option>اقتراح</option>
+                        <option>شراكة</option>
+                        <option>آخر</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">الرسالة</label>
+                    <textarea class="form-textarea" placeholder="اكتب رسالتك هنا..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary form-submit">
+                    <i class="fas fa-paper-plane"></i>
+                    إرسال الرسالة
+                </button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-lighthouse"></i>
+                    </div>
+                    <span>نبراس</span>
+                </div>
+                <p class="footer-description">
+                    منصتك الشاملة لتعلم Google Lighthouse وتحسين أداء المواقع. انضم لآلاف المطورين الذين حسّنوا مواقعهم معنا.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-title">روابط سريعة</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">الرئيسية</a></li>
+                    <li><a href="#" class="footer-link">الدورات</a></li>
+                    <li><a href="#" class="footer-link">عن المنصة</a></li>
+                    <li><a href="#" class="footer-link">المدونة</a></li>
+                    <li><a href="#" class="footer-link">الوظائف</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-title">الدعم</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">مركز المساعدة</a></li>
+                    <li><a href="#" class="footer-link">الأسئلة الشائعة</a></li>
+                    <li><a href="#" class="footer-link">اتصل بنا</a></li>
+                    <li><a href="#" class="footer-link">سياسة الخصوصية</a></li>
+                    <li><a href="#" class="footer-link">شروط الخدمة</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-title">الفئات</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Lighthouse للمبتدئين</a></li>
+                    <li><a href="#" class="footer-link">تحسين الأداء</a></li>
+                    <li><a href="#" class="footer-link">SEO المتقدم</a></li>
+                    <li><a href="#" class="footer-link">Core Web Vitals</a></li>
+                    <li><a href="#" class="footer-link">أدوات التحليل</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="footer-copyright">
+                © 2024 نبراس - جميع الحقوق محفوظة. تم التطوير بواسطة MiniMax Agent
+            </p>
+            <div class="footer-legal">
+                <a href="#" class="footer-legal-link">سياسة الخصوصية</a>
+                <a href="#" class="footer-legal-link">الشروط والأحكام</a>
+                <a href="#" class="footer-legal-link">خريطة الموقع</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Chatbot Toggle -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="المساعد الذكي">
+        <i class="fas fa-robot"></i>
+    </button>
+    
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <span class="chatbot-title">
+                <i class="fas fa-robot"></i>
+                مساعد نبراس الذكي
+            </span>
+            <button id="chatbotClose" style="background: none; color: white; font-size: 1.2rem;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="chat-message bot">
+                مرحباً! أنا مساعدك الذكي. كيف يمكنني مساعدتك اليوم؟
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="اكتب سؤالك..." id="chatbotInput">
+            <button class="chatbot-send" id="chatbotSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // ==================== Initialize AOS ====================
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+        
+        // ==================== Loading Screen ====================
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+                document.body.classList.remove('loading');
+            }, 1500);
+        });
+        
+        // ==================== Generate Hero Particles ====================
+        const heroBg = document.getElementById('heroBg');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'hero-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+            heroBg.appendChild(particle);
+        }
+        
+        // ==================== Navbar Scroll Effect ====================
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // ==================== Mobile Menu ====================
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenuIcon.className = 'fas fa-times';
+            } else {
+                mobileMenuIcon.className = 'fas fa-bars';
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuIcon.className = 'fas fa-bars';
+            });
+        });
+        
+        // ==================== Theme Toggle ====================
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-mode');
+            themeIcon.className = 'fas fa-sun';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            
+            if (document.body.classList.contains('light-mode')) {
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // ==================== Search Toggle ====================
+        const searchBtn = document.getElementById('searchBtn');
+        const searchInput = document.getElementById('searchInput');
+        
+        searchBtn.addEventListener('click', () => {
+            searchInput.focus();
+        });
+        
+        // ==================== Notifications Panel ====================
+        const notificationsBtn = document.getElementById('notificationsBtn');
+        const notificationsPanel = document.getElementById('notificationsPanel');
+        const markAllRead = document.getElementById('markAllRead');
+        const notificationBadge = document.getElementById('notificationBadge');
+        
+        notificationsBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            notificationsPanel.classList.toggle('active');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!notificationsPanel.contains(e.target) && e.target !== notificationsBtn) {
+                notificationsPanel.classList.remove('active');
+            }
+        });
+        
+        markAllRead.addEventListener('click', () => {
+            document.querySelectorAll('.notification-item.unread').forEach(item => {
+                item.classList.remove('unread');
+            });
+            notificationBadge.textContent = '0';
+        });
+        
+        // ==================== Smooth Scroll ====================
+        const navbarHeight = navbar.offsetHeight;
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY + navbarHeight + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // ==================== Counter Animation ====================
+        const counters = document.querySelectorAll('[data-count]');
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    
+                    const updateCounter = () => {
+                        current += step;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current).toLocaleString();
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target.toLocaleString() + '+';
+                        }
+                    };
+                    
+                    updateCounter();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+        
+        counters.forEach(counter => counterObserver.observe(counter));
+        
+        // ==================== FAQ Accordion ====================
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const faqAnswer = faqItem.querySelector('.faq-answer');
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.maxHeight = '0';
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+                }
+            });
+        });
+        
+        // ==================== Testimonials Slider ====================
+        const testimonialsContainer = document.getElementById('testimonialsContainer');
+        const testimonialPrev = document.getElementById('testimonialPrev');
+        const testimonialNext = document.getElementById('testimonialNext');
+        const testimonialDots = document.getElementById('testimonialDots');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        
+        let currentTestimonial = 0;
+        
+        // Create dots
+        testimonialCards.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = 'testimonial-dot' + (index === 0 ? ' active' : '');
+            dot.addEventListener('click', () => goToTestimonial(index));
+            testimonialDots.appendChild(dot);
+        });
+        
+        function updateTestimonials() {
+            testimonialsContainer.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+            document.querySelectorAll('.testimonial-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentTestimonial);
+            });
+        }
+        
+        function goToTestimonial(index) {
+            currentTestimonial = index;
+            updateTestimonials();
+        }
+        
+        testimonialPrev.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length;
+            updateTestimonials();
+        });
+        
+        testimonialNext.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+            updateTestimonials();
+        });
+        
+        // Auto-advance testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+            updateTestimonials();
+        }, 5000);
+        
+        // ==================== Back to Top Button ====================
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // ==================== Chatbot ====================
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+        
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.classList.toggle('active');
+        });
+        
+        chatbotClose.addEventListener('click', () => {
+            chatbotContainer.classList.remove('active');
+        });
+        
+        function addChatMessage(text, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
+            messageDiv.textContent = text;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+        
+        function getBotResponse(message) {
+            const responses = {
+                'مرحبا': 'مرحباً! كيف يمكنني مساعدتك اليوم؟',
+                'السلام': 'وعليكم السلام! مرحباً بك في نبراس',
+                'دورة': 'لدينا دورات متنوعة في Lighthouse والأداء. هل تريد معرفة المزيد عن دورة معينة؟',
+                'سعر': 'تتراوح أسعار دوراتنا بين $49 و $149 حسب مستوى الدورة ومحتواها.',
+                'شهادة': 'نعم! تحصل على شهادة رقمية معتمدة بعد إكمال كل دورة.',
+                'مساعدة': 'بالتأكيد! أنا هنا للمساعدة. ما هو سؤالك؟',
+                'default': 'سؤال جيد! يمكنني مساعدتك في معلومات عامة. لمزيد من التفاصيل، تواصل مع فريق الدعم.'
+            };
+            
+            const lowerMessage = message.toLowerCase();
+            for (const [key, value] of Object.entries(responses)) {
+                if (lowerMessage.includes(key)) {
+                    return value;
+                }
+            }
+            return responses.default;
+        }
+        
+        function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                addChatMessage(message, true);
+                chatbotInput.value = '';
+                
+                setTimeout(() => {
+                    addChatMessage(getBotResponse(message));
+                }, 1000);
+            }
+        }
+        
+        chatbotSend.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        // ==================== Forms ====================
+        document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+            alert('شكراً لاشتراكك! سنرسل آخر الأخبار إلى: ' + email);
+            e.target.reset();
+        });
+        
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('شكراً لرسالتك! سنرد عليك في أقرب وقت ممكن.');
+            e.target.reset();
+        });
+        
+        // ==================== Custom Cursor ====================
+        const customCursor = document.getElementById('customCursor');
+        
+        if (window.matchMedia('(pointer: fine)').matches) {
+            document.addEventListener('mousemove', (e) => {
+                customCursor.style.left = e.clientX + 'px';
+                customCursor.style.top = e.clientY + 'px';
+            });
+            
+            document.querySelectorAll('a, button, .card, .course-card').forEach(element => {
+                element.addEventListener('mouseenter', () => customCursor.classList.add('hover'));
+                element.addEventListener('mouseleave', () => customCursor.classList.remove('hover'));
+            });
+        }
+        
+        // ==================== PWA Service Worker Registration ====================
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // Service worker would be registered here for offline support
+                console.log('PWA Support: Ready for Service Worker registration');
+            });
+        }
+        
+        // ==================== Console Welcome Message ====================
+        console.log('%c مرحباً بك في نبراس! ', 'background: linear-gradient(135deg, #2563EB, #10B981); color: white; padding: 10px 20px; font-size: 20px; font-weight: bold; border-radius: 10px;');
+        console.log('%c تم تطوير هذا الموقع بواسطة MiniMax Agent ', 'color: #64748B; font-size: 12px;');
+    </script>
+</body>
+</html>

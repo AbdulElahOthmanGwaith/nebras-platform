@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lighthouse - أداة تحسين جودة صفحات الويب | دليل شامل</title>
+    <meta name="description" content="تعرف على Lighthouse، الأداة المفتوحة المصدر من Google لتحسين جودة صفحات الويب. دليل شامل يشمل المميزات، طرق الاستخدام، وأنواع الفحوصات.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0D1117;
+            --secondary-dark: #161B22;
+            --accent-blue: #58A6FF;
+            --accent-green: #3FB950;
+            --accent-purple: #A371F7;
+            --accent-orange: #F0883E;
+            --accent-red: #F85149;
+            --accent-pink: #DB61A2;
+            --text-primary: #F0F6FC;
+            --text-secondary: #8B949E;
+            --card-bg: rgba(22, 27, 34, 0.8);
+            --glass-border: rgba(48, 54, 61, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.9;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.7rem 5%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.3rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(88, 166, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(163, 113, 247, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(56, 163, 95, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.5rem;
+            background: rgba(88, 166, 255, 0.1);
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            box-shadow: 0 4px 20px rgba(88, 166, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(88, 166, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-blue);
+            background: rgba(88, 166, 255, 0.1);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(88, 166, 255, 0.1);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--secondary-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(88, 166, 255, 0.3);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.15), rgba(163, 113, 247, 0.15));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* How to Use Section */
+        .how-to-use {
+            position: relative;
+        }
+
+        .usage-tabs {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tab-btn i {
+            font-size: 1.2rem;
+        }
+
+        .tab-btn:hover,
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.15), rgba(163, 113, 247, 0.15));
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .tab-content {
+            display: none;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid var(--glass-border);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .tab-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .code-block {
+            background: #0D1117;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .code-block .comment {
+            color: var(--text-secondary);
+        }
+
+        .code-block .command {
+            color: var(--accent-green);
+        }
+
+        .code-block .string {
+            color: var(--accent-orange);
+        }
+
+        /* Audit Types Section */
+        .audit-types {
+            background: var(--secondary-dark);
+        }
+
+        .audit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .audit-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+        }
+
+        .audit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .audit-header {
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .audit-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .audit-icon.performance {
+            background: linear-gradient(135deg, rgba(56, 163, 95, 0.2), rgba(56, 163, 95, 0.1));
+            color: var(--accent-green);
+        }
+
+        .audit-icon.accessibility {
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.2), rgba(88, 166, 255, 0.1));
+            color: var(--accent-blue);
+        }
+
+        .audit-icon.best-practices {
+            background: linear-gradient(135deg, rgba(240, 136, 62, 0.2), rgba(240, 136, 62, 0.1));
+            color: var(--accent-orange);
+        }
+
+        .audit-icon.seo {
+            background: linear-gradient(135deg, rgba(163, 113, 247, 0.2), rgba(163, 113, 247, 0.1));
+            color: var(--accent-purple);
+        }
+
+        .audit-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .audit-header span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .audit-body {
+            padding: 2rem;
+        }
+
+        .audit-list {
+            list-style: none;
+        }
+
+        .audit-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .audit-list li:last-child {
+            border-bottom: none;
+        }
+
+        .audit-list li i {
+            color: var(--accent-green);
+            margin-top: 0.3rem;
+        }
+
+        /* Metrics Section */
+        .metrics-section {
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.03), rgba(163, 113, 247, 0.03));
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        .metric-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(88, 166, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.4rem;
+            color: var(--accent-blue);
+        }
+
+        .metric-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        .metric-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: var(--secondary-dark);
+        }
+
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        /* Plugins Section */
+        .plugins-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .plugin-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .plugin-card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-5px);
+        }
+
+        .plugin-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .plugin-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .plugin-card h3 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .plugin-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .plugin-link {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .plugin-link:hover {
+            gap: 1rem;
+        }
+
+        /* Importance Section */
+        .importance {
+            background: var(--secondary-dark);
+        }
+
+        .importance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .importance-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .importance-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+        }
+
+        .importance-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(56, 163, 95, 0.2), rgba(56, 163, 95, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--accent-green);
+        }
+
+        .importance-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .importance-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            padding: 8rem 5%;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-dark);
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-brand .logo {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .audit-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--primary-dark);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .tab-content {
+                padding: 2rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-dark);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--glass-border);
+            border-top-color: var(--accent-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-lighthouse"></i>
+            Lighthouse
+        </a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#features">المميزات</a></li>
+            <li><a href="#how-to-use">الاستخدام</a></li>
+            <li><a href="#audits">الفحوصات</a></li>
+            <li><a href="#metrics">المقاييس</a></li>
+        </ul>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-badge">
+                <i class="fas fa-star"></i>
+                أداة Google مفتوحة المصدر
+            </span>
+            <h1>Lighthouse هي أداة آلية ومفتوحة المصدر <br><span>تساعد في تحسين جودة صفحات الويب</span></h1>
+            <p>Lighthouse تُجري عمليات تدقيق في الأداء، إمكانية الوصول، تحسين محركات البحث، والمزيد. يمكنك تشغيلها على أي صفحة ويب سواء كانت عامة أو تتطلب المصادقة.</p>
+            <div class="hero-buttons">
+                <a href="#how-to-use" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    ابدأ الاستخدام
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i>
+                    اعرف المزيد
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header fade-in">
+            <span class="section-tag">المميزات</span>
+            <h2>لماذا تختار Lighthouse؟</h2>
+            <p>تتميز Lighthouse بمجموعة من المميزات التي تجعلها الأداة المثلى لتحسين جودة المواقع</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h3>فحوصات الأداء</h3>
+                <p>يُجري Lighthouse تدقيقات شاملة للأداء تتضمن قياس سرعة تحميل الصفحة، وقت الاستجابة، ومقاييس تجربة المستخدم الأساسية.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-universal-access"></i>
+                </div>
+                <h3>إمكانية الوصول</h3>
+                <p>يقيس Lighthouse مدى توافق الموقع مع معايير إمكانية الوصول ويضمن أن جميع المستخدمين بما فيهم ذوي الإعاقة يمكنهم استخدام الموقع.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>تحسين محركات البحث</h3>
+                <p>يُقيّم Lighthouse مدى تحسين الموقع لمحركات البحث ويقدم توصيات لتحسين الظهور في نتائج البحث العضوي.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>أفضل الممارسات</h3>
+                <p>يتحقق Lighthouse من اتباع أفضل الممارسات في التطوير بما في ذلك الأمان والأداء والموثوقية.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <h3>التكامل المستمر</h3>
+                <p>يمكن دمج Lighthouse في أنظمة CI/CD باستخدام Lighthouse CI لتجنب تراجع الأداء مع مرور الوقت.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <h3>التخصيص والتوسيع</h3>
+                <p>تدعم Lighthouse حزم التطبيقات والمكونات الإضافية لتوفير توصيات مخصصة حسب التقنيات المستخدمة في موقعك.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section class="how-to-use" id="how-to-use">
+        <div class="section-header fade-in">
+            <span class="section-tag">الاستخدام</span>
+            <h2>كيفية استخدام Lighthouse</h2>
+            <p>يمكنك تشغيل Lighthouse بطرق متعددة حسب احتياجاتك</p>
+        </div>
+        
+        <div class="usage-tabs fade-in">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="devtools">
+                    <i class="fab fa-chrome"></i>
+                    Chrome DevTools
+                </button>
+                <button class="tab-btn" data-tab="cli">
+                    <i class="fas fa-terminal"></i>
+                    سطر الأوامر
+                </button>
+                <button class="tab-btn" data-tab="node">
+                    <i class="fas fa-cube"></i>
+                    وحدة Node
+                </button>
+                <button class="tab-btn" data-tab="pagespeed">
+                    <i class="fas fa-globe"></i>
+                    PageSpeed Insights
+                </button>
+                <button class="tab-btn" data-tab="extension">
+                    <i class="fas fa-puzzle-piece"></i>
+                    إضافة Chrome
+                </button>
+            </div>
+
+            <div class="tab-content active" id="devtools">
+                <h3>استخدام Lighthouse في Chrome DevTools</h3>
+                <p>تُعتبر هذه الطريقة الأسهل والأكثر شيوعاً لاستخدام Lighthouse، مثالية لتدقيق الصفحات التي تتطلب مصادقة وعرض التقارير مباشرة في المتصفح.</p>
+                <div class="steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <h4>تنزيل Google Chrome</h4>
+                            <p>تأكد من استخدام Google Chrome للكمبيوتر المكتبي</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <h4>افتح الصفحة المراد تدقيقها</h4>
+                            <p>انتقل إلى عنوان URL للصفحة التي تريد تحليلها</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div class="step-content">
+                            <h4>افتح أدوات المطوريين</h4>
+                            <p>اضغط على F12 أو Ctrl+Shift+I لفتح DevTools</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <div class="step-content">
+                            <h4>انتقل إلى علامة تبويب Lighthouse</h4>
+                            <p>ستجدها في شريط علامات التبويب العلوي</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <div class="step-content">
+                            <h4>حدد الفئات وانقر على تحليل</h4>
+                            <p>اختر الفئات المطلوبة ثم اضغط على "تحليل أداء تحميل الصفحة"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="cli">
+                <h3>استخدام Lighthouse من سطر الأوامر</h3>
+                <p>توفر واجهة سطر الأوامر مرونة أكبر لتنفيذ عمليات التدقيق آلياً، وهي مثالية للسكربتات وأنظمة التشغيل الآلي.</p>
+                <div class="steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <h4>تأكد من تثبيت Chrome</h4>
+                            <p>تحتاج إلى Google Chrome للكمبيوتر المكتبي</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <h4>تثبت Node.js</h4>
+                            <p>تحتاج إلى الإصدار الحالي من Node.js</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div class="step-content">
+                            <h4>ثبت Lighthouse عالمياً</h4>
+                            <p>استخدم الأمر التالي:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <span class="comment"># تثبيت Lighthouse عالمياً</span><br>
+                    <span class="command">npm install -g lighthouse</span><br><br>
+                    <span class="comment"># إجراء تدقيق لصفحة</span><br>
+                    <span class="command">lighthouse</span> <span class="string">&lt;url&gt;</span><br><br>
+                    <span class="comment"># عرض جميع الخيارات</span><br>
+                    <span class="command">lighthouse --help</span>
+                </div>
+            </div>
+
+            <div class="tab-content" id="node">
+                <h3>استخدام Lighthouse برمجياً</h3>
+                <p>تتيح الوحدة البرمجية لـ Lighthouse إمكانية دمج الأداة في أنظمة التكامل المستمر وفي تطبيقاتك الخاصة.</p>
+                <div class="steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <h4>ثبت Lighthouse في مشروعك</h4>
+                            <p>أضف Lighthouse كتبعية لمشروعك</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <h4>استخدم Lighthouse في كودك</h4>
+                            <p>يمكنك إنشاء تقارير مخصصة باستخدام API Lighthouse</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div class="step-content">
+                            <h4>راجع التوثيق</h4>
+                            <p>اطلع على أمثلة الاستخدام في توثيق GitHub</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <span class="comment"># تثبيت في المشروع</span><br>
+                    <span class="command">npm install lighthouse</span><br><br>
+                    <span class="comment"># مثال برمجي</span><br>
+                    <span class="command">import</span> lighthouse from 'lighthouse';<br><br>
+                    <span class="command">const</span> results = <span class="command">await</span> lighthouse(<span class="string">'https://example.com'</span>);
+                </div>
+            </div>
+
+            <div class="tab-content" id="pagespeed">
+                <h3>استخدام PageSpeed Insights</h3>
+                <p>خدمة ويب مجانية من Google لتشغيل Lighthouse دون الحاجة لتثبيت أي برامج. مثالية للمستخدمين الذين يريدون نتائج سريعة.</p>
+                <div class="steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <h4>انتقل إلى PageSpeed Insights</h4>
+                            <p>قم بزيارة الموقع: pagespeed.web.dev</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <h4>أدخل عنوان URL</h4>
+                            <p>اكتب عنوان الصفحة التي تريد تحليلها</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div class="step-content">
+                            <h4>انقر على تحليل</h4>
+                            <p>انتظر حتى تكتمل عملية التدقيق</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <div class="step-content">
+                            <h4>راجع التقرير</h4>
+                            <p>ستحصل على تقرير مفصل مع توصيات للتحسين</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="extension">
+                <h3>استخدام إضافة Chrome</h3>
+                <p>إضافة متصفح سريعة لتشغيل Lighthouse من شريط العناوين. ملاحظة: يُفضل استخدام DevTools بدلاً منها للحصول على نتائج أدق.</p>
+                <div class="steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <h4>ثبت Chrome</h4>
+                            <p>تأكد من تنزيل Google Chrome للكمبيوتر المكتبي</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <h4>ثبّت الإضافة</h4>
+                            <p>قم بتثبيت إضافة Lighthouse من Chrome Web Store</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div class="step-content">
+                            <h4>انتقل للصفحة المطلوبة</h4>
+                            <p>افتح الصفحة التي تريد تدقيقها في Chrome</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <div class="step-content">
+                            <h4>انقر على أيقونة Lighthouse</h4>
+                            <p>ستجدها بجانب شريط العناوين أو في قائمة الإضافات</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <div class="step-content">
+                            <h4>أنشئ التقرير</h4>
+                            <p>اضغط على "إصدار التقرير" للحصول على النتائج</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audit Types Section -->
+    <section class="audit-types" id="audits">
+        <div class="section-header fade-in">
+            <span class="section-tag">أنواع الفحوصات</span>
+            <h2>أنواع عمليات التدقيق في Lighthouse</h2>
+            <p>Lighthouse يُجري عمليات تدقيق شاملة في أربعة محاور رئيسية</p>
+        </div>
+        
+        <div class="audit-grid">
+            <div class="audit-card fade-in">
+                <div class="audit-header">
+                    <div class="audit-icon performance">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div>
+                        <h3>الأداء</h3>
+                        <span>Performance</span>
+                    </div>
+                </div>
+                <div class="audit-body">
+                    <ul class="audit-list">
+                        <li><i class="fas fa-check"></i> سرعة عرض المحتوى على الصفحة (FCP)</li>
+                        <li><i class="fas fa-check"></i> مؤشر السرعة (Speed Index)</li>
+                        <li><i class="fas fa-check"></i> سرعة عرض أكبر جزء من المحتوى (LCP)</li>
+                        <li><i class="fas fa-check"></i> إجمالي وقت الحظر (TBT)</li>
+                        <li><i class="fas fa-check"></i> متغيرات التصميم التراكمية (CLS)</li>
+                        <li><i class="fas fa-check"></i> تفاعلية الصفحة (INP)</li>
+                        <li><i class="fas fa-check"></i> تحسين حجم عناصر DOM</li>
+                        <li><i class="fas fa-check"></i> استخدام التخزين المؤقت الفعال</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="audit-card fade-in">
+                <div class="audit-header">
+                    <div class="audit-icon accessibility">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <div>
+                        <h3>إمكانية الوصول</h3>
+                        <span>Accessibility</span>
+                    </div>
+                </div>
+                <div class="audit-body">
+                    <ul class="audit-list">
+                        <li><i class="fas fa-check"></i> عناصر التحكم مع أدوار ARIA</li>
+                        <li><i class="fas fa-check"></i> تسميات مرتبطة بعناصر التحكم</li>
+                        <li><i class="fas fa-check"></i> إمكانية الوصول بلوحة المفاتيح</li>
+                        <li><i class="fas fa-check"></i> ترتيب التنقل المنطقي</li>
+                        <li><i class="fas fa-check"></i> عناصر معالم HTML5</li>
+                        <li><i class="fas fa-check"></i> المحتوى خارج الشاشة مخفي</li>
+                        <li><i class="fas fa-check"></i> ترتيب DOM يتوافق مع الترتيب المرئي</li>
+                        <li><i class="fas fa-check"></i> تسميات وصفية للروابط</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="audit-card fade-in">
+                <div class="audit-header">
+                    <div class="audit-icon best-practices">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h3>أفضل الممارسات</h3>
+                        <span>Best Practices</span>
+                    </div>
+                </div>
+                <div class="audit-body">
+                    <ul class="audit-list">
+                        <li><i class="fas fa-check"></i> استخدام HTTPS آمن</li>
+                        <li><i class="fas fa-check"></i> عدم استخدام مكتبات ذات ثغرات أمنية</li>
+                        <li><i class="fas fa-check"></i> فعالية سياسة أمان المحتوى (CSP)</li>
+                        <li><i class="fas fa-check"></i> تجنب استخدام document.write()</li>
+                        <li><i class="fas fa-check"></i> تعريف HTML DOCTYPE صحيح</li>
+                        <li><i class="fas fa-check"></i> سياسة HSTS قوية</li>
+                        <li><i class="fas fa-check"></i> عدم طلب أذونات بشكل مبالغ فيه</li>
+                        <li><i class="fas fa-check"></i> تجنب التقنيات المتوقفة نهائياً</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="audit-card fade-in">
+                <div class="audit-header">
+                    <div class="audit-icon seo">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div>
+                        <h3>تحسين محركات البحث</h3>
+                        <span>SEO</span>
+                    </div>
+                </div>
+                <div class="audit-body">
+                    <ul class="audit-list">
+                        <li><i class="fas fa-check"></i> وجود وصف تعريفي للصفحة</li>
+                        <li><i class="fas fa-check"></i> علامات hreflang صالحة</li>
+                        <li><i class="fas fa-check"></i> علامة rel=canonical صالحة</li>
+                        <li><i class="fas fa-check"></i> نصوص وصفية للروابط</li>
+                        <li><i class="fas fa-check"></i> أحجام خطوط قابلة للقراءة</li>
+                        <li><i class="fas fa-check"></i> أهداف نقر مناسبة للجوال</li>
+                        <li><i class="fas fa-check"></i> ملف robots.txt صالح</li>
+                        <li><i class="fas fa-check"></i> البيانات المنظمة صالحة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics-section" id="metrics">
+        <div class="section-header fade-in">
+            <span class="section-tag">المقاييس</span>
+            <h2>مقاييس الأداء الأساسية</h2>
+            <p>فهم المقاييس الأساسية يساعدك على تحسين تجربة المستخدم بشكل أفضل</p>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card fade-in">
+                <div class="metric-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h4>FCP</h4>
+                <p>سرعة عرض أول محتوى على الصفحة</p>
+                <div class="metric-value">1.8 ث</div>
+            </div>
+            <div class="metric-card fade-in">
+                <div class="metric-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h4>LCP</h4>
+                <p>سرعة عرض أكبر عنصر محتوى</p>
+                <div class="metric-value">2.5 ث</div>
+            </div>
+            <div class="metric-card fade-in">
+                <div class="metric-icon">
+                    <i class="fas fa-pause"></i>
+                </div>
+                <h4>TBT</h4>
+                <p>إجمالي وقت حظر التفاعل</p>
+                <div class="metric-value">200 مل</div>
+            </div>
+            <div class="metric-card fade-in">
+                <div class="metric-icon">
+                    <i class="fas fa-columns"></i>
+                </div>
+                <h4>CLS</h4>
+                <p>متغيرات التصميم التراكمية</p>
+                <div class="metric-value">0.1</div>
+            </div>
+            <div class="metric-card fade-in">
+                <div class="metric-icon">
+                    <i class="fas fa-hand-pointer"></i>
+                </div>
+                <h4>INP</h4>
+                <p>تفاعلية الصفحة</p>
+                <div class="metric-value">200 مل</div>
+            </div>
+            <div class="metric-card fade-in">
+                <div class="metric-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h4>SI</h4>
+                <p>مؤشر السرعة</p>
+                <div class="metric-value">3.4 ث</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plugins Section -->
+    <section class="plugins-section" id="plugins">
+        <div class="section-header fade-in">
+            <span class="section-tag">التخصيص</span>
+            <h2>حزم التطبيقات والمكونات الإضافية</h2>
+            <p>Lighthouse قابلة للتخصيص والتوسيع لتلبية احتياجاتك الخاصة</p>
+        </div>
+        
+        <div class="plugins-grid">
+            <div class="plugin-card fade-in">
+                <div class="plugin-header">
+                    <div class="plugin-icon">
+                        <i class="fab fa-wordpress"></i>
+                    </div>
+                    <h3>حزمة WordPress</h3>
+                </div>
+                <p>تكتشف المنصة وتقدم توصيات مخصصة لمواقع WordPress، تتضمن تحسينات للمكونات الإضافية والقوالب والضغط.</p>
+                <a href="#" class="plugin-link">
+                   了解更多 <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+            
+            <div class="plugin-card fade-in">
+                <div class="plugin-header">
+                    <div class="plugin-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3>حزمة React</h3>
+                </div>
+                <p>تقدم توصيات متخصصة لتطبيقات React تشمل تحسين الـ hooks وتقسيم الكود وتحسين الـ hydration.</p>
+                <a href="#" class="plugin-link">
+                   了解更多 <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+            
+            <div class="plugin-card fade-in">
+                <div class="plugin-header">
+                    <div class="plugin-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>المكونات الإضافية المخصصة</h3>
+                </div>
+                <p>تتيح للمطورين إنشاء عمليات تدقيق جديدة واستخدام بيانات Lighthouse لبناء أدوات تحليل مخصصة.</p>
+                <a href="#" class="plugin-link">
+                   了解更多 <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Importance Section -->
+    <section class="importance" id="importance">
+        <div class="section-header fade-in">
+            <span class="section-tag">الأهمية</span>
+            <h2>أهمية Lighthouse لتحسين المواقع</h2>
+            <p>فهم القيمة التي يقدمها Lighthouse لتحسين حضورك الرقمي</p>
+        </div>
+        
+        <div class="importance-grid">
+            <div class="importance-card fade-in">
+                <div class="importance-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h3>تحسين تجربة المستخدم</h3>
+                <p>من خلال تحسين سرعة الموقع واستجابته، تبقى الزوار أطول وتتحول بشكل أفضل.</p>
+            </div>
+            
+            <div class="importance-card fade-in">
+                <div class="importance-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>تحسين ترتيب البحث</h3>
+                <p>محركات البحث تعطي أولوية للمواقع السريعة والمتاحة، مما يزيد من ظهورك في النتائج.</p>
+            </div>
+            
+            <div class="importance-card fade-in">
+                <div class="importance-icon">
+                    <i class="fas fa-bug"></i>
+                </div>
+                <h3>اكتشاف المشكلات مبكراً</h3>
+                <p>حدد المشكلات الأمنية والأداء قبل أن تؤثر على المستخدمين أو ترفع التكاليف.</p>
+            </div>
+            
+            <div class="importance-card fade-in">
+                <div class="importance-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3>منع تراجع الأداء</h3>
+                <p>مع Lighthouse CI، تضمن عدم تراجع أداء الموقع مع كل تحديث أو تغيير.</p>
+            </div>
+            
+            <div class="importance-card fade-in">
+                <div class="importance-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>تعلم أفضل الممارسات</h3>
+                <p>كل توصية تأتي مع شرح وأمثلة، مما يساعد المطورين على تحسين مهاراتهم.</p>
+            </div>
+            
+            <div class="importance-card fade-in">
+                <div class="importance-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <h3>معايير موحدة</h3>
+                <p>استخدم معايير الويب المعتمدة لضمان التوافق عبر جميع المتصفحات والأجهزة.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="section-header fade-in">
+            <span class="section-tag">فيديو تعريفي</span>
+            <h2>شاهد كيفية استخدام Lighthouse</h2>
+            <p>فيديو تعريفي يشرح كيفية استخدام Lighthouse لتحسين مواقعك</p>
+        </div>
+        <div class="video-container fade-in">
+            <video controls poster="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=600&fit=crop">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                متصفحك لا يدعم تشغيل الفيديو
+            </video>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content fade-in">
+            <h2>ابدأ تحسين موقعك اليوم</h2>
+            <p>Lighthouse أداة مجانية ومفتوحة المصدر. لا يوجد عائق أمام بدء رحلتك نحو موقع أفضل.</p>
+            <a href="#how-to-use" class="btn btn-primary">
+                <i class="fas fa-rocket"></i>
+                ابدأ الآن
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fas fa-lighthouse"></i>
+                    Lighthouse
+                </a>
+                <p>أداة مفتوحة المصدر من Google لتحسين جودة صفحات الويب. مصممة للمطورين، بواسطة المطورين.</p>
+            </div>
+            <div class="footer-links">
+                <h4>الروابط</h4>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#how-to-use">الاستخدام</a></li>
+                    <li><a href="#audits">الفحوصات</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>الموارد</h4>
+                <ul>
+                    <li><a href="#">التوثيق الرسمي</a></li>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">PageSpeed Insights</a></li>
+                    <li><a href="#">مجتمع المطوريين</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>المعلومات</h4>
+                <ul>
+                    <li><a href="#">عن الأداة</a></li>
+                    <li><a href="#">الشروط</a></li>
+                    <li><a href="#">الخصوصية</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة © 2025 Lighthouse. تم إنشاؤه بواسطة Google.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 800);
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Tab Functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Fade In Animation on Scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter Animation for Metrics
+        const metricValues = document.querySelectorAll('.metric-value');
+        
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = 'true';
+                    // Add animation effect here if needed
+                }
+            });
+        }, { threshold: 0.5 });
+
+        metricValues.forEach(metric => {
+            counterObserver.observe(metric);
+        });
+    </script>
+</body>
+</html>
