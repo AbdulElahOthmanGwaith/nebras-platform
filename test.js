@@ -18,7 +18,9 @@ const { chromium } = require('playwright');
     
     try {
         // Navigate to the local file
-        await page.goto(`file:///workspace/index.html`, { waitUntil: 'networkidle' });
+        const path = require('path');
+        const filePath = path.join(__dirname, 'index.html');
+        await page.goto(`file://${filePath}`, { waitUntil: 'networkidle' });
         
         // Wait for page to fully load
         await page.waitForTimeout(2000);

@@ -16,7 +16,9 @@ const { chromium } = require('playwright');
     });
     
     try {
-        await page.goto(`file:///workspace/nebras-site/index.html`, { waitUntil: 'networkidle' });
+        const path = require('path');
+        const filePath = path.join(__dirname, 'index.html');
+        await page.goto(`file://${filePath}`, { waitUntil: 'networkidle' });
         await page.waitForTimeout(2000);
         
         const sections = ['home', 'story', 'features', 'journey', 'media', 'how-to-use', 'audits'];
