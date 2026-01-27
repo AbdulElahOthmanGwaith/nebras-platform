@@ -1,0 +1,45 @@
+# robots.txt for Nebras Platform
+# https://github.com/AbdulElahOthmanGwaith/nebras-platform
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow specific directories
+Disallow: /node_modules/
+Disallow: /test-results/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /tmp/
+Disallow: /temp/
+
+# Disallow specific file types
+Disallow: /*.log$
+Disallow: /*.tmp$
+Disallow: /*.test-result$
+
+# Sitemap location
+Sitemap: https://abdulelahothmangwaith.github.io/nebras-platform/sitemap.xml
+
+# Crawl-delay for specific bots (optional)
+# User-agent: Googlebot
+# Crawl-delay: 1
+
+# Allow common search engines explicitly
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /

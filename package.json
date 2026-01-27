@@ -1,16 +1,45 @@
 {
-  "name": "workspace",
-  "version": "1.0.0",
+  "name": "nebras-platform",
+  "version": "1.1.0",
+  "description": "منصة ويب متكاملة تتضمن عدة مشاريع فرعية متطورة لمنصة Nebras - A comprehensive web platform with multiple advanced sub-projects for Nebras platform",
   "main": "test.js",
+  "scripts": {
+    "test": "node test.js",
+    "test:v3": "cd nebras-v3 && node test.js",
+    "test:all": "npm test && npm run test:v3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdulElahOthmanGwaith/nebras-platform.git"
+  },
+  "keywords": [
+    "nebras",
+    "platform",
+    "web",
+    "arabic",
+    "rtl",
+    "responsive",
+    "modern",
+    "website",
+    "lighthouse",
+    "playwright",
+    "testing"
+  ],
+  "author": {
+    "name": "Abdul Elah Othman Gwaith",
+    "url": "https://github.com/AbdulElahOthmanGwaith"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AbdulElahOthmanGwaith/nebras-platform/issues"
+  },
+  "homepage": "https://github.com/AbdulElahOthmanGwaith/nebras-platform#readme",
   "dependencies": {
     "playwright": "^1.57.0"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "node test.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
 }
