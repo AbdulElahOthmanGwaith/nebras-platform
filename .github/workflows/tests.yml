@@ -2,89 +2,103 @@ name: Tests
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main, develop ]
+    branches: [main, develop]
   workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nebras-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: true
 
 jobs:
   test:
-    name: Run Tests
+    name: Run tests (Node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 20
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [14.x, 16.x, 18.x, 20.x]
-    
+        node-version: [18.x, 20.x, 22.x]
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    
-    - name: Install dependencies
-      run: npm ci
-      
-    - name: Install Playwright browsers
-      run: npx playwright install --with-deps
-      
-    - name: Run main tests
-      run: npm test
-      
-    - name: Run V3 tests
-      run: |
-        cd nebras-v3
-        npm install
-        npm test
-      
-    - name: Upload test results
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-results-${{ matrix.node-version }}
-        path: test-results/
-        retention-days: 30
-        
-  lint:
-    name: Code Quality Check
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            nebras-v3/package-lock.json
+      - name: Install root dependencies
+        run: npm ci
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+      - name: Run main tests
+        run: npm test
+      - name: Run V3 tests
+        working-directory: nebras-v3
+        run: |
+          npm ci
+          npm test
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ matrix.node-version }}
+          path: |
+            test-results/
+            nebras-v3/test-results/
+          if-no-files-found: ignore
+          retention-days: 30
+
+  repository-sanity:
+    name: Repository sanity checks
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 5
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20.x'
-        
-    - name: Check for syntax errors in HTML
-      run: |
-        echo "Checking HTML files..."
-        find . -name "*.html" -not -path "./node_modules/*" -exec echo "Checking {}" \;
-        
-    - name: Check for large files
-      run: |
-        echo "Checking for large files..."
-        find . -type f -size +1M -not -path "./node_modules/*" -not -path "./.git/*"
-        
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Check for large tracked files
+        run: |
+          large_files="$(find . -type f -size +1M -not -path './.git/*' -not -path './node_modules/*')"
+          if [ -n "$large_files" ]; then
+            echo "Files above 1 MiB were found:"
+            printf '%s\n' "$large_files"
+          else
+            echo "No files above 1 MiB found."
+          fi
+      - name: Verify required manifests
+        run: |
+          test -f package.json
+          test -f package-lock.json
+          test -f nebras-v3/package.json
+          test -f nebras-v3/package-lock.json
+
   security:
-    name: Security Audit
+    name: Security audit
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 10
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20.x'
-        
-    - name: Run npm audit
-      run: npm audit --audit-level=moderate
-      continue-on-error: true
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install production dependencies without lifecycle scripts
+        run: npm ci --ignore-scripts
+      - name: Audit high-severity vulnerabilities
+        run: npm audit --audit-level=high
+      - name: Audit V3 dependencies
+        working-directory: nebras-v3
+        run: npm ci --ignore-scripts && npm audit --audit-level=high
