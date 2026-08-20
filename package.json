@@ -5,8 +5,9 @@
   "main": "test.js",
   "scripts": {
     "test": "node test.js",
+    "test:links": "node scripts/check-html-links.js",
     "test:v3": "cd nebras-v3 && node test.js",
-    "test:all": "npm test && npm run test:v3"
+    "test:all": "npm test && npm run test:v3 && npm run test:links"
   },
   "repository": {
     "type": "git",
