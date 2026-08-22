@@ -28,7 +28,7 @@ jobs:
         node-version: [18.x, 20.x, 22.x]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -67,7 +67,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Check for large tracked files
         run: |
           large_files="$(find . -type f -size +1M -not -path './.git/*' -not -path './node_modules/*')"
@@ -90,7 +90,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
